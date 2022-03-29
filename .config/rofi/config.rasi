@@ -1,0 +1,82 @@
+configuration {
+  display-drun: "[A] : ";
+  display-window: "[W] : ";
+  drun-display-format: "{name}";
+  font: "JetBrainsMono Nerd Font Medium 10";
+  modi: "window,run,drun";
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #212121;
+  bg-alt: #1B1B1B;
+
+  fg: #FFFFFF;
+  fg-alt: #898989;
+
+  background-color: @bg;
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  anchor:     north;
+  location:   north;
+  width: 100%;
+  padding: 3px;
+  children:   [ horibox ];
+}
+
+horibox {
+  orientation: horizontal;
+  children:   [ prompt, entry, listview ];
+}
+
+listview {
+  layout:     horizontal;
+  spacing:    4px;
+  lines:      100;
+}
+entry {
+  expand:     false;
+  width:      10em;
+}
+
+element {
+  padding: 4 2;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+element-text {
+  background-color: inherit;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+entry {
+  background-color: @bg-alt;
+  padding: 4 2;
+  text-color: @fg;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [inputbar, listview];
+}
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 4 2;
+  text-color: @fg;
+}
+
+/* vim: ft=sass
