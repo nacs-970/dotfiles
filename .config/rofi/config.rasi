@@ -1,6 +1,7 @@
 configuration {
   display-drun: "[A] : ";
   display-window: "[W] : ";
+  display-run: "[R] : ";
   drun-display-format: "{name}";
   font: "JetBrainsMono Nerd Font Medium 10";
   modi: "window,run,drun";
@@ -78,5 +79,3 @@ prompt {
   padding: 4 2;
   text-color: @fg;
 }
-
-/* vim: ft=sass
