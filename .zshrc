@@ -25,4 +25,3 @@ zstyle ':vcs_info:*' formats '%s(%F{red}%b%f)'
 #PS
 PS1="%F{green}%n@%m%f:%F{blue}[%~]%f>> "
 PS2=">"
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
