@@ -21,5 +21,8 @@ unsetopt BEEP
 #git info
 autoload -Uz vcs_info
 precmd() { vcs_info }
+zstyle ':vcs_info:*' formats '%s(%F{red}%b%f)'
 #PS
-PS1="%n@%~|$> ${vcs_info_msg_0_}"
+PS1="%F{green}%n@%m%f:%F{blue}[%~]%f>> "
+PS2=">"
+#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
