@@ -26,5 +26,5 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '%b'
 
 #PS
-PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}{${vcs_info_msg_0_}}%f >> '
+PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}|${vcs_info_msg_0_}|%f >> '
 PS2='> '
