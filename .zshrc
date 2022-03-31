@@ -6,7 +6,7 @@ autoload -U colors && colors
 #Enable History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/.histfile
 
 #Basic auto/tab complete:
 autoload -U compinit
@@ -23,8 +23,8 @@ autoload -Uz vcs_info && compinit
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
-zstyle ':vcs_info:git:*' formats '%b'
+zstyle ':vcs_info:git:*' formats '|%b|'
 
 #PS
-PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}|${vcs_info_msg_0_}|%f >> '
+PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
 PS2='> '
