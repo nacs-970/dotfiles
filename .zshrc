@@ -4,8 +4,8 @@
 autoload -U colors && colors
 
 #Enable History
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=2500
+SAVEHIST=2500
 HISTFILE=~/.histfile
 
 #Basic auto/tab complete:
