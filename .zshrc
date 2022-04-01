@@ -1,5 +1,9 @@
 # Created by newuser for 5.8
 
+#Export
+export TERM=alacritty
+export EDITOR=nvim
+
 #Enable Colors
 autoload -U colors && colors
 
@@ -18,12 +22,19 @@ _comp_options+=(globdots) # Include hidden files.
 #no beep
 unsetopt BEEP
 
+#pywal auto
+var=$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
+wal -q -i $var
+
 #git info
 autoload -Uz vcs_info && compinit
 precmd_vcs_info() { vcs_info }
 precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '|%b|'
+
+#alias
+alias vim='nvim'
 
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
