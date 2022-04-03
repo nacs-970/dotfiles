@@ -22,6 +22,12 @@ _comp_options+=(globdots) # Include hidden files.
 #no beep
 unsetopt BEEP
 
+#Bindkey | showkey -a to make sure
+bindkey "^[[H" beginning-of-line #Home
+bindkey "^[[F" end-of-line #End
+bindkey "^[[5~" up-history #Page-up
+bindkey "^[[6~" down-history #Page-down
+
 #pywal auto
 var=$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
 wal -q -i $var
