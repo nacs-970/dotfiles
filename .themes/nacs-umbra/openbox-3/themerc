@@ -38,8 +38,8 @@ window.inactive.button.disabled.image.color: #E6E6E6
 
 !! Borders
 border.width: 0
-padding.width: 20
-padding.height: 12
+padding.width: 12
+padding.height: 5
 window.client.padding.width: 0
 window.client.padding.height: 0
 window.handle.width: 3
