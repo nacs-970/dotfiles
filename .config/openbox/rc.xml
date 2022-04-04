@@ -274,7 +274,6 @@
         <finalactions>
           <action name="Focus"/>
           <action name="Raise"/>
-          <action name="Unshade"/>
         </finalactions>
       </action>
     </keybind>
@@ -335,9 +334,20 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
-    <keybind key="Fn-A">
+    <!-- Function key-->
+    <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>rofi -show run</command>
+        <command>amixer set Master toggle</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>amixer set Master 5%+</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>amixer set Master 5%-</command>
       </action>
     </keybind>
   </keyboard>
