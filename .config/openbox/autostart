@@ -1,2 +1,3 @@
 nitrogen --restore &
 tint2 &
+setxkbmap -layout us,th -option grp:win_space_toggle & 
