@@ -334,6 +334,11 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
+    <keybind key="W-P">
+      <action name="Execute">
+        <command>prtsc</command>
+      </action>
+    </keybind>
     <!-- Function key-->
     <keybind key="XF86AudioMute">
       <action name="Execute">
@@ -348,6 +353,16 @@
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
         <command>amixer set Master 5%-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>brightnessctl set 5%+</command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>brightnessctl set 5%-</command>
       </action>
     </keybind>
   </keyboard>

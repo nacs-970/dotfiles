@@ -2,7 +2,8 @@
 
 #Export
 export TERM=alacritty
-export EDITOR=nvim
+export EDITOR=neovim
+export PATH=/home/nacs/.bin:$PATH
 
 #Enable Colors
 autoload -U colors && colors
@@ -41,7 +42,7 @@ zstyle ':vcs_info:git:*' formats '|%b|'
 
 #alias
 alias vim='nvim'
-
+alias prtsc='maim ~/Pictures/$(date +%d-%m-%Y_%H-%M-%S).jpg'
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
 PS2='> '
