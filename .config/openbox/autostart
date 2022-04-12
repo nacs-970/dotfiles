@@ -1,5 +1,5 @@
-nm-applet &
 volumeicon &
+nm-applet &
 nitrogen --restore &
 tint2 &
 cbatticon &
