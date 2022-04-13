@@ -55,7 +55,7 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Monospace</name>
       <size>10</size>
@@ -336,7 +336,7 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-	<command>scrot ~/Pictures/</command>
+        <command>scrot ~/Pictures/</command>
       </action>
     </keybind>
     <!-- Function key-->
@@ -347,12 +347,12 @@
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-	<command>amixer set Master 5%+</command>
+        <command>amixer set Master 5%+</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-	<command>amixer set Master 5%-</command>
+        <command>amixer set Master 5%-</command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessUp">
