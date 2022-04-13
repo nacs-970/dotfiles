@@ -108,6 +108,7 @@ our $SCHEMA = [
     # {item => ['oblogout', 'Exit', 'application-exit']},
     {beg =>['Power','power']},
       {item => ['openbox --exit', 'Logout']},
+      {item => ['systemctl suspend', 'Suspend']},
       {item => ['systemctl reboot', 'Restart']},
       {item => ['systemctl poweroff', 'Shutdown']},
     {end => undef},

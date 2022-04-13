@@ -42,7 +42,8 @@ zstyle ':vcs_info:git:*' formats '|%b|'
 
 #alias
 alias vim='nvim'
-alias prtsc='maim ~/Pictures/$(date +%d-%m-%Y_%H-%M-%S).jpg'
+#alias mpv='mpv --profile=builtin-pseudo-gui & disown'
+
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
 PS2='> '
