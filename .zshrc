@@ -30,8 +30,7 @@ bindkey "^[[5~" up-history #Page-up
 bindkey "^[[6~" down-history #Page-down
 
 #pywal auto
-var=$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
-wal -q -i $var
+wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
 
 #git info
 autoload -Uz vcs_info && compinit
@@ -43,7 +42,6 @@ zstyle ':vcs_info:git:*' formats '|%b|'
 #alias
 alias vim='nvim'
 #alias mpv='mpv --profile=builtin-pseudo-gui & disown'
-
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
 PS2='> '
