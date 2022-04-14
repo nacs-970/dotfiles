@@ -107,9 +107,10 @@ our $SCHEMA = [
     ## This uses the 'oblogout' menu
     # {item => ['oblogout', 'Exit', 'application-exit']},
     {beg =>['Power','power']},
+      {item => ['betterlockscreen -l', 'Lock']},
       {item => ['openbox --exit', 'Logout']},
       {item => ['systemctl suspend', 'Suspend']},
-      {item => ['systemctl reboot', 'Restart']},
-      {item => ['systemctl poweroff', 'Shutdown']},
+      {item => ['systemctl reboot', 'Reboot']},
+      {item => ['systemctl poweroff', 'Poweroff']},
     {end => undef},
 ]

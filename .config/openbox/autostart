@@ -1,7 +1,6 @@
-volumeicon &
 nm-applet &
+volumeicon &
 nitrogen --restore &
 tint2 &
-cbatticon &
 dunst &
 setxkbmap -layout us,th -option grp:win_space_toggle & 
