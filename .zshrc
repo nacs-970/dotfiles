@@ -2,8 +2,8 @@
 
 #Export
 export TERM=alacritty
-export EDITOR=neovim
-export PATH=/home/nacs/.bin:$PATH
+export EDITOR=nvim
+export PATH=/home/nacs/.local/bin:$PATH
 
 #Enable Colors
 autoload -U colors && colors
@@ -42,6 +42,10 @@ zstyle ':vcs_info:git:*' formats '|%b|'
 #alias
 alias vim='nvim'
 #alias mpv='mpv --profile=builtin-pseudo-gui & disown'
+alias rsn='redshift -P -O 1500'
+alias rsr='redshift -P -x'
+alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
 PS2='> '
