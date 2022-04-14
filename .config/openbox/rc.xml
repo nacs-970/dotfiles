@@ -336,7 +336,7 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <command>scrot ~/Pictures/</command>
+        <command>scrot ~/Pictures/.jpg</command>
       </action>
     </keybind>
     <!-- Function key-->
