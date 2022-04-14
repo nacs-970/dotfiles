@@ -338,6 +338,9 @@
       <action name="Execute">
         <command>scrot ~/Pictures/.jpg</command>
       </action>
+      <action name="Execute">
+        <command>notify-send Screenshotted!</command>
+      </action>
     </keybind>
     <!-- Function key-->
     <keybind key="XF86AudioMute">
