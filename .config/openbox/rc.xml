@@ -342,6 +342,14 @@
         <command>notify-send Screenshotted!</command>
       </action>
     </keybind>
+    <keybind key="W-Print">
+      <action name="Execute">
+        <command>scrot -s -l mode=edge ~/Pictures/.jpg</command>
+      </action>
+      <action name="Execute">
+        <command>notify-send Screenshotted!</command>
+      </action>
+    </keybind>
     <keybind key="W-Alt-S">
       <action name="Execute">
         <command>systemctl suspend</command>
@@ -381,6 +389,42 @@
           <x>0</x>
           <y>-0</y>
           <width>100%</width>
+          <height>50%</height>
+	</action>
+    </keybind>
+    <keybind key="W-Alt-Right">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+          <x>-0</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>50%</height>
+	</action>
+    </keybind>
+    <keybind key="W-Alt-Left">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+          <x>0</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>50%</height>
+	</action>
+    </keybind>
+    <keybind key="W-Alt-Up">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+          <x>0</x>
+          <y>0</y>
+          <width>50%</width>
+          <height>50%</height>
+	</action>
+    </keybind>
+    <keybind key="W-Alt-Down">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+          <x>0</x>
+          <y>-0</y>
+          <width>50%</width>
           <height>50%</height>
 	</action>
     </keybind>

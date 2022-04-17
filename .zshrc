@@ -45,6 +45,7 @@ alias vim='nvim'
 alias rsn='redshift -P -O 1500'
 alias rsr='redshift -P -x'
 alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+alias ls='ls -lah'
 
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
