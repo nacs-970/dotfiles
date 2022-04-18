@@ -111,6 +111,7 @@ our $SCHEMA = [
       {item => ['openbox --exit', 'Logout']},
       {item => ['systemctl suspend', 'Suspend']},
       {item => ['systemctl reboot', 'Reboot']},
+      {item => ['systemctl hibernate', 'Hibernate']},
       {item => ['systemctl poweroff', 'Poweroff']},
     {end => undef},
 ]

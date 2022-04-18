@@ -4,3 +4,4 @@ nitrogen --restore &
 tint2 &
 dunst &
 setxkbmap -layout us,th -option grp:win_space_toggle & 
+xautolock -locker betterlockscreen -time 5 -detectsleep &

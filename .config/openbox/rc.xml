@@ -334,6 +334,11 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
+    <keybind key="W-Alt-Return">
+      <action name="Execute">
+        <command>rofi -show drun</command>
+      </action>
+    </keybind>
     <keybind key="Print">
       <action name="Execute">
         <command>scrot ~/Pictures/.jpg</command>
@@ -355,78 +360,74 @@
         <command>systemctl suspend</command>
       </action>
     </keybind>
-    <!--Tilling key--> 
+    <!--Tilling key-->
     <keybind key="W-Left">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>0</x>
-          <y>0</y>
-          <width>50%</width>
-          <height>100%</height>
-	</action>
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
     </keybind>
     <keybind key="W-Right">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>-0</x>
-          <y>0</y>
-          <width>50%</width>
-          <height>100%</height>
-	</action>
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+      </action>
     </keybind>
     <keybind key="W-Up">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>0</x>
-          <y>0</y>
-          <width>100%</width>
-          <height>50%</height>
-	</action>
+        <x>0</x>
+        <y>0</y>
+        <width>100%</width>
+        <height>50%</height>
+      </action>
     </keybind>
     <keybind key="W-Down">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>0</x>
-          <y>-0</y>
-          <width>100%</width>
-          <height>50%</height>
-	</action>
-    </keybind>
-    <keybind key="W-Alt-Right">
-      <action name="Unmaximize"/>
-      <action name="MoveResizeTo">
-          <x>-0</x>
-          <y>0</y>
-          <width>50%</width>
-          <height>50%</height>
-	</action>
+        <x>0</x>
+        <y>-0</y>
+        <width>100%</width>
+        <height>50%</height>
+      </action>
     </keybind>
     <keybind key="W-Alt-Left">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>0</x>
-          <y>0</y>
-          <width>50%</width>
-          <height>50%</height>
-	</action>
+        <x>0</x>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
+    </keybind>
+    <keybind key="W-Alt-Right">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
     </keybind>
     <keybind key="W-Alt-Up">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>0</x>
-          <y>0</y>
-          <width>50%</width>
-          <height>50%</height>
-	</action>
+        <y>0</y>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
     </keybind>
     <keybind key="W-Alt-Down">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-          <x>0</x>
-          <y>-0</y>
-          <width>50%</width>
-          <height>50%</height>
-	</action>
+        <y>-0</y>
+        <width>50%</width>
+        <height>50%</height>
+      </action>
     </keybind>
     <!--Function key-->
     <keybind key="XF86AudioMute">
@@ -815,6 +816,9 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
+    <application type="normal">
+	    <decor>yes</decor><!--:)-->
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
