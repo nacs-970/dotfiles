@@ -29,8 +29,9 @@ bindkey "^[[F" end-of-line #End
 bindkey "^[[5~" up-history #Page-up
 bindkey "^[[6~" down-history #Page-down
 
-#pywal auto
-wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
+#Plugin
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #git info
 autoload -Uz vcs_info && compinit
@@ -39,14 +40,17 @@ precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '|%b|'
 
-#alias
-alias vim='nvim'
-#alias mpv='mpv --profile=builtin-pseudo-gui & disown'
-alias rsn='redshift -P -O 1500'
-alias rsr='redshift -P -x'
-alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
-alias ls='ls -lah'
-
 #PS
 PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
 PS2='> '
+
+#alias
+alias vim='nvim'
+alias rsn='redshift -P -O 2500'
+alias rsr='redshift -P -x'
+alias feh='feh -g 1280x720 -z'
+#alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+alias ls='ls -lah'
+
+#pywal auto
+wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
