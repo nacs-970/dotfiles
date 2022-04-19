@@ -51,6 +51,7 @@ alias rsr='redshift -P -x'
 alias feh='feh -g 1280x720 -z'
 #alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
 alias ls='ls -lah'
+alias sxiv='sxiv -a'
 
 #pywal auto
 wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
