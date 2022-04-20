@@ -4,4 +4,4 @@ nitrogen --restore &
 tint2 &
 dunst &
 setxkbmap -layout us,th -option grp:win_space_toggle & 
-xautolock -locker betterlockscreen -time 5 -detectsleep &
+xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 180 "xset dpms force off;betterlockscreen -l" "" &
