@@ -346,7 +346,7 @@
       <action name="Execute">
         <command>notify-send Screenshotted!</command>
       </action>
-    </keybind>
+	</keybind>
     <keybind key="W-Print">
       <action name="Execute">
         <command>scrot -s -l mode=edge ~/Pictures/.jpg</command>
@@ -355,9 +355,14 @@
         <command>notify-send Screenshotted!</command>
       </action>
     </keybind>
-    <keybind key="W-Alt-S">
+    <keybind key="W-l">
       <action name="Execute">
-        <command>systemctl suspend</command>
+        <command>betterlockscreen -l</command>
+      </action>
+    </keybind>
+    <keybind key="W-Alt-R">
+      <action name="Execute">
+        <command>openbox --reconfigure</command>
       </action>
     </keybind>
     <!--Tilling key-->
