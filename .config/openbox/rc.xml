@@ -329,6 +329,11 @@
         <command>alacritty</command>
       </action>
     </keybind>
+    <keybind key="W-Alt-t">
+      <action name="Execute">
+        <command>termite</command>
+      </action>
+    </keybind>
     <keybind key="W-Return">
       <action name="Execute">
         <command>rofi -show run</command>
@@ -341,16 +346,16 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <command>scrot ~/Pictures/.jpg</command>
+        <command>scrot ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
       </action>
       <action name="Execute">
         <command>notify-send Screenshotted!</command>
       </action>
-	</keybind>
+    </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-        <command>scrot -s -l mode=edge ~/Pictures/.jpg</command>
       </action>
+        <command>scrot -s -l mode=edge ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
       <action name="Execute">
         <command>notify-send Screenshotted!</command>
       </action>
@@ -822,7 +827,7 @@
   </menu>
   <applications>
     <application type="normal">
-	    <decor>yes</decor><!--:)-->
+      <decor>yes</decor>
     </application>
     <!--
   # this is an example with comments through out. use these to make your

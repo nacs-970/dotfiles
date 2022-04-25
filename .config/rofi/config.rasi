@@ -64,7 +64,7 @@ element-text {
 
 entry {
   background-color: @bg-alt;
-  padding: 4 2;
+  padding: 5 2;
   text-color: @fg;
 }
 

@@ -3,7 +3,7 @@
 #Export
 export TERM=alacritty
 export EDITOR=nvim
-export PATH=/home/nacs/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 #Enable Colors
 autoload -U colors && colors
@@ -46,12 +46,14 @@ PS2='> '
 
 #alias
 alias vim='nvim'
-alias rsn='redshift -P -O 2500'
-alias rsr='redshift -P -x'
 alias feh='feh -g 1280x720 -z'
 #alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
-alias ls='ls -lah'
+alias ls='ls -h --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
+alias mkdir='mkdir -pv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias grep='grep --color=auto'
 
 #pywal auto
 wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
