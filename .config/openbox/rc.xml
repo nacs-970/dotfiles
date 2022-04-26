@@ -354,8 +354,8 @@
     </keybind>
     <keybind key="W-Print">
       <action name="Execute">
-      </action>
         <command>scrot -s -l mode=edge ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
+	 </action>
       <action name="Execute">
         <command>notify-send Screenshotted!</command>
       </action>
