@@ -47,13 +47,17 @@ PS2='> '
 #alias
 alias vim='nvim'
 alias feh='feh -g 1280x720 -z'
-#alias spotify='LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify'
+alias mpvg='mpv --player-operation-mode=pseudo-gui'
+#alias walc='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1)' #feh
+alias walc='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1)' #nitrogen
 alias ls='ls -h --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
+alias cl='clear'
 alias mkdir='mkdir -pv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias grep='grep --color=auto'
 
 #pywal auto
-wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')
+wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//') #nitrogen
+#wal -q -i $(grep feh ~/.fehbg |awk '{print $4}' | sed -e "s/'//g") #feh
