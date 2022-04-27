@@ -2,7 +2,6 @@
 - [`zsh`](https://github.com/nacs-970/dotfiles/blob/main/.zshrc) : custom PS1 , alias , syntax-highlighting , autosuggestions
 - [`alacritty`](https://github.com/nacs-970/dotfiles/blob/main/.config/alacritty/alacritty.yml) : Inconsolata Nerd Font , custom color , blinking
 - [`dunst`](https://github.com/nacs-970/dotfiles/blob/main/.config/dunst/dunstrc)
-- `fish`
 - [`lf`](https://github.com/nacs-970/dotfiles/blob/main/.config/lf/lfrc)
 - [`mpv`](https://github.com/nacs-970/dotfiles/blob/main/.config/mpv/mpv.conf)
 - [`nvim`](https://github.com/nacs-970/dotfiles/blob/main/.config/nvim/init.vim)
