@@ -344,6 +344,16 @@
         <command>rofi -show drun</command>
       </action>
     </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>betterlockscreen -l</command>
+      </action>
+    </keybind>
+    <keybind key="W-Alt-R">
+      <action name="Execute">
+        <command>openbox --reconfigure</command>
+      </action>
+    </keybind>
     <keybind key="Print">
       <action name="Execute">
         <command>scrot ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
@@ -355,19 +365,14 @@
     <keybind key="W-Print">
       <action name="Execute">
         <command>scrot -s -l mode=edge ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
-	 </action>
+      </action>
       <action name="Execute">
         <command>notify-send Screenshotted!</command>
       </action>
     </keybind>
-    <keybind key="W-l">
+    <keybind key="Caps_Lock">
       <action name="Execute">
-        <command>betterlockscreen -l</command>
-      </action>
-    </keybind>
-    <keybind key="W-Alt-R">
-      <action name="Execute">
-        <command>openbox --reconfigure</command>
+        <command>notify-send Caplock!</command>
       </action>
     </keybind>
     <!--Tilling key-->
@@ -463,6 +468,11 @@
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
         <command>brightnessctl set 5%-</command>
+      </action>
+    </keybind>
+    <keybind key="XF86Sleep">
+      <action name="Execute">
+        <command>systemctl suspend</command>
       </action>
     </keybind>
   </keyboard>

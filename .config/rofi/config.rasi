@@ -3,7 +3,7 @@ configuration {
   display-window: "[W] : ";
   display-run: "[R] : ";
   drun-display-format: "{name}";
-  font: " Inconsolata Nerd Font Medium 10";
+  font: " Inconsolata Medium 10";
   modi: "window,run,drun";
 }
 

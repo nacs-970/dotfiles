@@ -4,5 +4,7 @@ nitrogen --restore &
 tint2 &
 dunst &
 setxkbmap -layout us,th -option grp:win_space_toggle & 
-xidlehook --detect-sleep --not-when-audio --timer 180 "xset dpms force off;betterlockscreen -l" "" &
-xinput set-prop $(xinput list | grep Touch | awk '{print $6}' | sed -e 's/id=//') 'libinput Accel Speed' "0.4 1" &
+xset s off &
+xidlehook --detect-sleep --not-when-audio --timer 180 "xset dpms force off;betterlockscreen -l" ""&
+xidlehook --detect-sleep --not-when-audio --timer 600 "systemctl suspend" ""&
+xinput set-prop $(xinput list | grep Touch | awk '{print $6}' | sed -e 's/id=//') 'libinput Accel Speed' "0.3 1" &
