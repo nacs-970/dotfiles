@@ -3,7 +3,7 @@
 #Export
 export TERM=alacritty
 export EDITOR=nvim
-export PATH=$HOME/.local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 #Enable Colors
 autoload -U colors && colors
@@ -41,16 +41,20 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '|%b|'
 
 #PS
-PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> '
+#PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> ' #$USER@$HOST:[$PWD] >>
+PS1='%F{green}%n%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> ' # $USER:[$PWD] >>
 PS2='> '
 
 #alias
 alias vim='nvim'
 alias feh='feh -g 1280x720 -z'
+alias picom='picom --experimental-backends'
 alias mpvg='mpv --player-operation-mode=pseudo-gui'
-#alias walc='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1)' #feh
-alias walc='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1)' #nitrogen
-alias ls='ls -h --color=auto --group-directories-first'
+alias wcrf='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.zshrc' #feh
+alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.zshrc;clear' #nitrogen
+alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.zshrc;clear' #feh
+alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.zshrc;clear' #nitrogen
+alias ls='ls -ah --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
 alias cl='clear'
 alias mkdir='mkdir -pv'
