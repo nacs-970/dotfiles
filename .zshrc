@@ -48,12 +48,13 @@ PS2='> '
 #alias
 alias vim='nvim'
 alias feh='feh -g 1280x720 -z'
-alias picom='picom --experimental-backends'
+#alias picom='picom --experimental-backends'
 alias mpvg='mpv --player-operation-mode=pseudo-gui'
 alias wcrf='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.zshrc' #feh
 alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.zshrc;clear' #nitrogen
 alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.zshrc;clear' #feh
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.zshrc;clear' #nitrogen
+alias sptdl='echo "URL > ";read spotdlurl;spotdl $(echo $spotdlurl) --of m4a -o /media/d/Personal/Musik/Download'
 alias ls='ls -ah --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
 alias cl='clear'
