@@ -11,7 +11,6 @@ autoload -U colors && colors
 #Enable History
 HISTSIZE=2500
 SAVEHIST=2500
-HISTFILE=~/.histfile
 
 #Basic auto/tab complete:
 autoload -U compinit
@@ -41,7 +40,7 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats '|%b|'
 
 #PS
-#PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> ' #$USER@$HOST:[$PWD] >>
+#PS1='%F{green}%n@%m%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> ' # $USER@$HOST:[$PWD] >>
 PS1='%F{green}%n%f:%F{blue}[%~]%f%F{red}${vcs_info_msg_0_}%f >> ' # $USER:[$PWD] >>
 PS2='> '
 
