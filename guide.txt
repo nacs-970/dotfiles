@@ -1,0 +1,204 @@
+#Base - system
+multilib => /etc/pacman.conf 
+multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
+sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
+yay -Syu
+yay -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting wget calc bc htop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji qalculate-gtk xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi vim neovim calc brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice
+yay -c;yay -Scc;yay -Sc
+systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
+
+#Home mode
+yay -S zoom steam librewolf-bin discord rawtherapee gimp krita kdenlive mpv cmus libreoffice-still vscodium-bin spotify spotblock-rs notepadqq xournalpp qbittorrent handbreak obs-studio easytag mkvtoolnix-gui thokr-git veikk-tablet-driver
+
+#Dev mode
+yay -S neovim vim vscodium-bin libreolf-bin godot alacritty zsh zsh-autosuggestions zsh-syntax-highlighting 
+
+#XFCE Sitch language
+xfce4-xkb-plugin
+
+#cmus slow quiting
+$ cmus;exit
+
+#Switch language
+sudo vim /etc/X11/xorg.conf.d/00-keyboard.conf
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us,th"
+        Option "XkbOptions" "grp:win_space_toggle"
+EndSection
+
+#Noise reduction Pipewire
+https://medium.com/@gamunu/linux-noise-cancellation-b9f997f6764d
+$ sudo vim /etc/systemd/user/pipewire-input-filter-chain.service
+Change reduction vol "VAD Threshold(%)" 35.0 / line 42
+
+#Printer [https://wiki.archlinux.org/title/CUPS]
+sudo systemctl enable cups
+
+#Openbox custom bash script rc.xml
+paste script in /bin/
+
+#Wifi Terminal
+nmcli
+
+#CUPS
+yay system-config-printer cups cups-pdf
+- disable banner
+lpadmin -p <Printer Name> -o job-sheets-default=none
+**check print option in programs [like gimp]**
+
+#CUPS MP280
+yay -S cnijfilter-mp280 scangearmp-mp280
+first page print is secret page
+
+#VPN
+yay -S openvpn 
+go to https://vpngate.net/en
+choose server
+download .ovpn
+sudo openvpn /PATH/*.ovpn
+
+#Firefox youtube fullscreen scrollbar [UBlockOrigin]
+Ublock Origin -> Three cogwheels ("Open the dashboard") -> My Filters
+www.youtube.com##ytd-app:style(overflow: hidden !important;)
+
+#Screnn share android
+yay -S scrcpy
+Phone : Open debuginh via usb
+scrcpy -M # allow mouse on phone
+
+#Tor
+yay -S tor-browser
+//yay -S torbrowser-launcher
+
+#Usb port loop
+echo -n "0000:00:1a.0" | tee /sys/bus/pci/drivers/ehci_hcd/unbind;echo -n "0000:00:1d.0" | tee /sys/bus/pci/drivers/ehci_hcd/unbind;echo -n "0000:00:1a.0" | tee /sys/bus/pci/drivers/ehci_hcd/bind;echo -n "0000:00:1d.0" | tee /sys/bus/pci/drivers/ehci_hcd/bind
+
+#pywal plugin
+Zathura : https://github.com/GideonWolfe/Zathura-Pywal #no sudo
+Librewolf : - https://addons.mozilla.org/en-US/firefox/addon/pywalfox/
+- yay -S python-pywalfox;sudo pywalfox -g install;sudo mkdir /usr/lib/librewolf/native-messaging-hosts/;sudo cp /usr/lib/mozilla/native-messaging-hosts/pywalfox.json /usr/lib/librewolf/native-messaging-hosts/pywalfox.json;sudo rm -rf /usr/lib/mozilla/
+
+#file in file
+zip b.zip b.txt
+cat a.jpg b.zip > c.jpg
+
+#Steam
+Crash at start
+launch option = PROTON_USE_WINED3D11=1 %command%
+
+#Steam connection error
+1) ##temp| terminal steam -tcp
+2) copy nameserve in '/run/systemd/resolve/stub-resolv.conf' to /etc/resolv.conf
+
+#SAM [Steam Achievements Manager]
+yay -S samrewritten-git
+
+#gamemode
+yay -S gamemode lib32-gamemode 
+gamemode -t
+
+#lightdm failed after restart
+sudo vim /etc/lightdm/lightdm.conf
+[LightDM]
+logind-check-graphical=true
+
+#laptop - touchpad scrolling 
+vim /etc/X11/xorg.conf.d/30-touchpad.conf
+Option "NaturalScrolling" "on"
+
+#change mouse sensitivity
+xinput set-prop $id 303 "$x1 $x2" | xinput set-prop 21 303 "0.1 1" 
+
+#Power button action
+sudo vim /etc/systemd/logind.conf
+Or just >> https://unix.stackexchange.com/questions/50748/how-can-i-set-power-button-on-computer-case-to-power-off-system-with-systemd
+
+#amd driver
+yay -S mesa lib32-mesa xf86-video-amdgpu amdvlk vulkan-radeon lib32-vulkan-radeon lib32-amdvlk libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau #foss
+
+#Screen tearing [amd] | read archwiki amdgpu for more info >> https://wiki.archlinux.org/title/AMDGPU#Tear_free_rendering
+install driver first
+vim /etc/X11/xorg.conf.d/20-amdgpu.conf
+Section "Device"
+     Identifier "AMD"
+     Driver "amdgpu"
+     Option "TearFree" "true"
+EndSection
+yay -S mesa lib32-mesa #have to reinstall everytime you config anything related to screen/gpu (+ using lightdm)
+
+#grub
+GRUB_DEFAULT=saved #change to saved
+GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=34c1700a-792b-41bf-9ceb-c2bc955932de loglevel=3 audit=0 nomodset" #remove quiet
+
+#Bluetooth [low quality / mono]
+repeat connect and disconnect : remove device and re-pair
+pipewire : pactl set-card-profile [card_number] a2dp-sink # https://wiki.archlinux.org/title/PipeWire
+*** if not :
+	- boot to diffrent os ex: fedora , linux mint  , windows
+	- reset bios
+
+#Font cn/jp/kr/th (font blank error download font https://wiki.archlinux.org/title/Fonts#Font_packages)
+yay -S adobe-source-han-sans-cn-fonts adobe-source-han-serif-cn-fonts
+yay -S adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fonts
+yay -S adobe-source-han-sans-kr-fonts adobe-source-han-serif-kr-fonts
+yay -S fonts-tlwg #th and optional
+
+#firefox 
+about:config
+ui.key.menuAccessKeyFocuses false
+browser.cache.disk.enable false
+full-screen-api.transition-duration.enter 0 0
+full-screen-api.transition-duration.leave 0 0
+
+#mpv - ff2mpv
+$ git clone https://github.com/woodruffw/ff2mpv
+$ cd ff2mpv
+$ vim ff2mpv 
+insert :
+librewolf)
+     linux_path="$HOME/.librewolf"
+     LINUX_NMH_DIR="native-messaging-hosts"
+     JSON_FILE="ff2mpv.json"
+     ;;
+
+#Youtube conner problem ublockorigin
+setting -> My filters -> www.youtube.com##ytd-app:style(overflow: hidden !important;)
+
+#VKtablet autostart
+/etc/xdg/autostart/vktablet.desktop
+
+#pip error :
+- remove pip
+wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py
+python3 /tmp/get-pip.py
+pip install --user pipenv
+pip3 install --user pipenv
+yay -S python-pip
+
+#icons
+gtk-update-icon-cache -f -t ~/.icons/<theme_name>
+gtk-update-icon-cache -f -t /usr/share/icons/<theme_name>
+
+#find keyboard code/XF86..
+xev or sudo showkey -a,k,s
+
+#default app
+xdg-mime default sxiv.desktop image/jpg
+xdg-mime default sxiv.desktop image/jpeg
+xdg-mime default sxiv.desktop image/png
+xdg-mime default mpv.desktop audio/mp3
+xdg-mime default mpv.desktop audio/mp4
+xdg-mime default mpv.desktop video/mp4
+xdg-mime default mpv.desktop video/mkv
+xdg-mime default pcmanfm.desktop inode/directory
+xdg-mime default notepadqq.desktop text/plain 
+xdg-mime default nvim.desktop text/plain
+xdg-mime default libreoffice-calc.desktop text/csv
+
+#troubleshoot slow bio boot
+1) reset bios (slow boot to grub or boot entry)
+	+ fix slow bios boot / long bios boot
+	+ fix bluetooth in linux
+2) reinstall linux linux-headers grub
