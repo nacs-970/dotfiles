@@ -58,7 +58,7 @@
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>Inconsolata Medium</name>
-      <size>10</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -67,7 +67,7 @@
     </font>
     <font place="InactiveWindow">
       <name>Inconsolata Medium</name>
-      <size>10</size>
+      <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -123,12 +123,12 @@
     <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>1</name>
-      <name>2</name>
-      <name>3</name>
-      <name>4</name>
+      <name>c[_]</name>
+      <name>|[●▪▪●]|</name>
+      <name>ᒡ◯ᵔ◯ᒢ</name>
+      <name>Ƹ̵̡Ӝ̵̨̄Ʒ</name>
     </names>
-    <popupTime>200</popupTime>
+    <popupTime>230</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -315,6 +315,9 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    <keybind key="W-q">
+      <action name="Close"/>
+    </keybind>
     <keybind key="W-e">
       <action name="Execute">
         <command>pcmanfm</command>
@@ -325,7 +328,7 @@
         <command>alacritty</command>
       </action>
     </keybind>
-    <keybind key="W-Alt-t">
+    <keybind key="W-A-t">
       <action name="Execute">
         <command>termite</command>
       </action>
@@ -335,7 +338,7 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
-    <keybind key="W-Alt-Return">
+    <keybind key="W-A-Return">
       <action name="Execute">
         <command>rofi -show drun</command>
       </action>
@@ -345,7 +348,7 @@
         <command>betterlockscreen -l</command>
       </action>
     </keybind>
-    <keybind key="W-Alt-R">
+    <keybind key="W-A-R">
       <action name="Execute">
         <command>openbox --reconfigure</command>
       </action>
@@ -375,7 +378,7 @@
       <action name="Execute">
         <command>dunstify Switched-language!</command>
       </action>
-    </keybind>
+  </keybind>
     <!--Tilling key-->
     <keybind key="W-Left">
       <action name="Unmaximize"/>
@@ -451,24 +454,51 @@
         <command>amixer set Master toggle</command>
       </action>
     </keybind>
+    <keybind key="XF86AudioPlay">
+      <action name="Execute">
+        <command>cmus-remote -u</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioNext">
+      <action name="Execute">
+        <command>cmus-remote -n</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPrev">
+      <action name="Execute">
+        <command>cmus-remote -r</command>
+      </action>
+    </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command>amixer set Master 5%+</command>
+      </action>
+      <action name="Execute">
+        <command>vol</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
         <command>amixer set Master 5%-</command>
       </action>
+      <action name="Execute">
+        <command>vol</command>
+      </action>
     </keybind>
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
         <command>brightnessctl set 5%+</command>
       </action>
+      <action name="Execute">
+        <command>bright</command>
+      </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
         <command>brightnessctl set 5%-</command>
+      </action>
+      <action name="Execute">
+        <command>bright</command>
       </action>
     </keybind>
     <keybind key="XF86Sleep">

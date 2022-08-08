@@ -19,6 +19,36 @@ xfce4-xkb-plugin
 #cmus slow quiting
 $ cmus;exit
 
+#cmus notification
+https://github.com/dcx86r/cmus-notify
+
+#Khinsider Bulk
+Teamper Monkey
+https://greasyfork.org/en/scripts/424015-vgmloaderx
+
+#Game ost
+- yt : 
+	- chapter : yt-dlp -f 140 -o  --split-chapters "%(chapter_number)s.%(chapter)s.%(ext)s"
+	- playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s"
+- https://downloads.khinsider.com/
+- https://www.sittingonclouds.net/
+
+#ffmpeg albumart extraction
+ffmpeg -i input.xxx -an -vcodec copy cover.jpg
+
+#ffmpeg mp3 to m4a (copy cover)
+ffmpeg -i "$(ls *.mp3|head -1)" -an -vcodec copy cover.jpg;for i in *.mp3;do ffmpeg -i $i -i cover.jpg -c:a aac -vn ${i%.*}.m4a;done;rm cover.jpg
+
+#ffmpeg m4a to mp3 (copy cover)
+ffmpeg -i "$(ls *.m4a|head -1)" -an -vcodec copy cover.jpg;for i in *.m4a;do ffmpeg -i $i -i cover.jpg -c:a libmp3lame -vn ${i%.*}.mp3;done;rm cover.jpg
+
+#Reduce image quality
+Install imagemagick
+convert a.jpg -quality '70%' b.jpg
+
+#tranfer music to andriod no data loss
+zip it!
+
 #Switch language
 sudo vim /etc/X11/xorg.conf.d/00-keyboard.conf
 Section "InputClass"
@@ -85,8 +115,10 @@ zip b.zip b.txt
 cat a.jpg b.zip > c.jpg
 
 #Steam
-Crash at start
-launch option = PROTON_USE_WINED3D11=1 %command%
++ Crash at start
+	- remove linux runtime soilder and reinstall proton + runtime
+	- if can't > launch option = PROTON_USE_WINED3D11=1 %command%
+
 
 #Steam connection error
 1) ##temp| terminal steam -tcp
@@ -131,6 +163,9 @@ yay -S mesa lib32-mesa #have to reinstall everytime you config anything related 
 #grub
 GRUB_DEFAULT=saved #change to saved
 GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=34c1700a-792b-41bf-9ceb-c2bc955932de loglevel=3 audit=0 nomodset" #remove quiet
+
+#Change disc lable
+https://askubuntu.com/questions/1103569/how-do-i-change-the-label-reported-by-lsblk
 
 #Bluetooth [low quality / mono]
 repeat connect and disconnect : remove device and re-pair
