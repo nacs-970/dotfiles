@@ -2,13 +2,13 @@
 multilib => /etc/pacman.conf 
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
-yay -Syu
-yay -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting wget calc bc htop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji qalculate-gtk xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi vim neovim calc brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice
+yay --noconfirm -Syu
+yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware  calc bc htop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi vim neovim calc brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 
 #Home mode
-yay -S zoom steam librewolf-bin discord rawtherapee gimp krita kdenlive mpv cmus libreoffice-still vscodium-bin spotify spotblock-rs notepadqq xournalpp qbittorrent handbreak obs-studio easytag mkvtoolnix-gui thokr-git veikk-tablet-driver
+yay -S zoom steam librewolf-bin discord gimp krita kdenlive mpv cmus libreoffice-still vscodium-bin spotify spotblock-rs notepadqq xournalpp qbittorrent handbreak obs-studio easytag mkvtoolnix-gui thokr-git veikk-tablet-driver zsh zsh-autosuggestions zsh-syntax-highlighting 
 
 #Dev mode
 yay -S neovim vim vscodium-bin libreolf-bin godot alacritty zsh zsh-autosuggestions zsh-syntax-highlighting 
@@ -26,9 +26,28 @@ https://github.com/dcx86r/cmus-notify
 Teamper Monkey
 https://greasyfork.org/en/scripts/424015-vgmloaderx
 
+# Angsana New Takeover
+https://freefontsdownload.net/free-angsana_new-font-66184.htm
+unzip and move it to /usr/share/fonts
+fc-cache
+sudo vim /etc/fonts/fonts.conf 
+add :
+        <alias>
+                <family>sans-serif</family>
+                <default>
+                        <family>Noto Sans Thai</family>
+                </default>
+                </alias>
+        <alias>
+                <family>serif</family>
+                <default>
+                        <family>Noto Serif Thai</family>
+                </default>
+        </alias>
+
 #Game ost
 - yt : 
-	- chapter : yt-dlp -f 140 -o  --split-chapters "%(chapter_number)s.%(chapter)s.%(ext)s"
+	- chapter : yt-dlp -f 140 --split-chapters -o "%(chapter_number)s.%(chapter)s.%(ext)s"
 	- playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s"
 - https://downloads.khinsider.com/
 - https://www.sittingonclouds.net/
@@ -37,17 +56,22 @@ https://greasyfork.org/en/scripts/424015-vgmloaderx
 ffmpeg -i input.xxx -an -vcodec copy cover.jpg
 
 #ffmpeg mp3 to m4a (copy cover)
-ffmpeg -i "$(ls *.mp3|head -1)" -an -vcodec copy cover.jpg;for i in *.mp3;do ffmpeg -i $i -i cover.jpg -c:a aac -vn ${i%.*}.m4a;done;rm cover.jpg
+ffmpeg -i "$(ls *.mp3|head -1)" -an -vcodec copy cover.jpg;for i in *.mp3;do ffmpeg -i $i -i cover.jpg -c:a aac ${i%.*}.m4a;done;rm cover.jpg
 
 #ffmpeg m4a to mp3 (copy cover)
-ffmpeg -i "$(ls *.m4a|head -1)" -an -vcodec copy cover.jpg;for i in *.m4a;do ffmpeg -i $i -i cover.jpg -c:a libmp3lame -vn ${i%.*}.mp3;done;rm cover.jpg
+ffmpeg -i "$(ls *.m4a|head -1)" -an -vcodec copy cover.jpg;for i in *.m4a;do ffmpeg -i $i -i cover.jpg -c:a libmp3lame ${i%.*}.mp3;done;rm cover.jpg
 
 #Reduce image quality
 Install imagemagick
 convert a.jpg -quality '70%' b.jpg
 
+#resize image
+convert a.jpg -resize 1920x1080 b.jpg
+
 #tranfer music to andriod no data loss
-zip it!
+check coverart
+zip it! and transfer
+unknow artist -> tag editor in phone
 
 #Switch language
 sudo vim /etc/X11/xorg.conf.d/00-keyboard.conf
@@ -73,6 +97,7 @@ paste script in /bin/
 nmcli
 
 #CUPS
+get driver : https://www.openprinting.org/printers
 yay system-config-printer cups cups-pdf
 - disable banner
 lpadmin -p <Printer Name> -o job-sheets-default=none
@@ -93,6 +118,10 @@ sudo openvpn /PATH/*.ovpn
 Ublock Origin -> Three cogwheels ("Open the dashboard") -> My Filters
 www.youtube.com##ytd-app:style(overflow: hidden !important;)
 
+#Warframe shuttering
+proton GE 
+Async
+
 #Screnn share android
 yay -S scrcpy
 Phone : Open debuginh via usb
@@ -102,7 +131,12 @@ scrcpy -M # allow mouse on phone
 yay -S tor-browser
 //yay -S torbrowser-launcher
 
+#Remove open with wine
+~/.local/share/applications
+rm -rf wine*
+
 #Usb port loop
+-unplug other usb
 echo -n "0000:00:1a.0" | tee /sys/bus/pci/drivers/ehci_hcd/unbind;echo -n "0000:00:1d.0" | tee /sys/bus/pci/drivers/ehci_hcd/unbind;echo -n "0000:00:1a.0" | tee /sys/bus/pci/drivers/ehci_hcd/bind;echo -n "0000:00:1d.0" | tee /sys/bus/pci/drivers/ehci_hcd/bind
 
 #pywal plugin
@@ -141,6 +175,8 @@ vim /etc/X11/xorg.conf.d/30-touchpad.conf
 Option "NaturalScrolling" "on"
 
 #change mouse sensitivity
+xinput set-float-prop $(xinput list | grep "Name of Mouse" | awk '{print $6}' | sed -e 's/id=//') 'libinput Accel Speed' "{0.00 - 0.99}" &
+xinput set-float-prop $id $sub $val | xinput set-float-prop 12 300 0.65
 xinput set-prop $id 303 "$x1 $x2" | xinput set-prop 21 303 "0.1 1" 
 
 #Power button action
@@ -167,7 +203,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=34c1700a-792b-41bf-9ceb-c2bc955932de log
 #Change disc lable
 https://askubuntu.com/questions/1103569/how-do-i-change-the-label-reported-by-lsblk
 
-#Bluetooth [low quality / mono]
+#Bluetooth [low quality / mono / org.bluez.Error.Busy / org.bluez.Error.NotReady]
+rfkill block bluetooth;rfkill unblock bluetooth;sudo systemctl stop bluetooth.service;sudo systemctl start bluetooth.service
 repeat connect and disconnect : remove device and re-pair
 pipewire : pactl set-card-profile [card_number] a2dp-sink # https://wiki.archlinux.org/title/PipeWire
 *** if not :
@@ -206,7 +243,7 @@ setting -> My filters -> www.youtube.com##ytd-app:style(overflow: hidden !import
 
 #pip error :
 - remove pip
-wget https://bootstrap.pypa.io/get-pip.py -O /tmp/get-pip.py
+curl 'https://bootstrap.pypa.io/get-pip.py' -o get-pip.py
 python3 /tmp/get-pip.py
 pip install --user pipenv
 pip3 install --user pipenv
