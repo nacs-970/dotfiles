@@ -13,14 +13,23 @@ yay -S zoom steam librewolf-bin discord gimp krita kdenlive mpv cmus libreoffice
 #Dev mode
 yay -S neovim vim vscodium-bin libreolf-bin godot alacritty zsh zsh-autosuggestions zsh-syntax-highlighting 
 
-#XFCE Sitch language
+#XFCE Switch language
 xfce4-xkb-plugin
+
+#Install didn't detect hard disk 
+https://wiki.archlinux.org/title/Partitioning#Drives_are_not_visible_when_firmware_RAID_is_enabled
+https://wiki.archlinux.org/title/EFI_system_partition#Check_for_an_existing_partition
 
 #cmus slow quiting
 $ cmus;exit
 
 #cmus notification
 https://github.com/dcx86r/cmus-notify
+
+#rm -rf recover
+yay -S testdisk
+https://www.youtube.com/watch?v=EmG0wLcwVaM
+https://www.youtube.com/watch?v=Kkt1-QeS9Qs
 
 #Khinsider Bulk
 Teamper Monkey
@@ -61,6 +70,9 @@ ffmpeg -i "$(ls *.mp3|head -1)" -an -vcodec copy cover.jpg;for i in *.mp3;do ffm
 #ffmpeg m4a to mp3 (copy cover)
 ffmpeg -i "$(ls *.m4a|head -1)" -an -vcodec copy cover.jpg;for i in *.m4a;do ffmpeg -i $i -i cover.jpg -c:a libmp3lame ${i%.*}.mp3;done;rm cover.jpg
 
+#ffmpeg img to vid
+ffmpeg -loop 1 -framerate 1 -i a.jpg -c:v libx264 -t "time-duration-sec" x.mp4
+
 #Reduce image quality
 Install imagemagick
 convert a.jpg -quality '70%' b.jpg
@@ -96,6 +108,9 @@ paste script in /bin/
 #Wifi Terminal
 nmcli
 
+#Arduino can't upload to port ...
+sudo chmod a+rw /dev/tty$(USB...)
+
 #CUPS
 get driver : https://www.openprinting.org/printers
 yay system-config-printer cups cups-pdf
@@ -130,6 +145,9 @@ scrcpy -M # allow mouse on phone
 #Tor
 yay -S tor-browser
 //yay -S torbrowser-launcher
+
+#Audiobookbay magnet
+hash info
 
 #Remove open with wine
 ~/.local/share/applications
@@ -179,6 +197,9 @@ xinput set-float-prop $(xinput list | grep "Name of Mouse" | awk '{print $6}' | 
 xinput set-float-prop $id $sub $val | xinput set-float-prop 12 300 0.65
 xinput set-prop $id 303 "$x1 $x2" | xinput set-prop 21 303 "0.1 1" 
 
+#bumpy scroll
+check your mouse
+
 #Power button action
 sudo vim /etc/systemd/logind.conf
 Or just >> https://unix.stackexchange.com/questions/50748/how-can-i-set-power-button-on-computer-case-to-power-off-system-with-systemd
@@ -195,6 +216,10 @@ Section "Device"
      Option "TearFree" "true"
 EndSection
 yay -S mesa lib32-mesa #have to reinstall everytime you config anything related to screen/gpu (+ using lightdm)
+
+#Screen tearing [nvidia]
+https://www.youtube.com/watch?v=oYWer86A20s (Neon Cipher)
+https://www.youtube.com/watch?v=0Ux9bz_Tfw0
 
 #grub
 GRUB_DEFAULT=saved #change to saved
@@ -268,6 +293,12 @@ xdg-mime default pcmanfm.desktop inode/directory
 xdg-mime default notepadqq.desktop text/plain 
 xdg-mime default nvim.desktop text/plain
 xdg-mime default libreoffice-calc.desktop text/csv
+
+#Add create new file option
+paste file in ~/Template
+
+# The sims 4 mod location
+$HOME/.steam/steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/My Documents/Electronic Arts/The Sims 4
 
 #troubleshoot slow bio boot
 1) reset bios (slow boot to grub or boot entry)
