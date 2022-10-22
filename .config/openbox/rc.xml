@@ -338,9 +338,9 @@
         <command>rofi -show run</command>
       </action>
     </keybind>
-    <keybind key="W-A-Return">
+    <keybind key="W-S-e">
       <action name="Execute">
-        <command>rofi -show drun</command>
+        <command>rofi -show emoji</command>
       </action>
     </keybind>
     <keybind key="W-l">

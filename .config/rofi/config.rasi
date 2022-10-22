@@ -2,8 +2,9 @@ configuration {
   display-drun: "[A] : ";
   display-window: "[W] : ";
   display-run: "[R] : ";
+  display-emoji: "[E] : ";
   drun-display-format: "{name}";
-  font: " Inconsolata Medium 10";
+  font: "Inconsolata Medium 10";
   modi: "window,run,drun";
 }
 

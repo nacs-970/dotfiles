@@ -48,13 +48,14 @@ PS2='> '
 alias vim='nvim'
 alias feh='feh -g 1280x720 -z'
 alias sourcez='source ~/.config/zsh/.zshrc'
-#alias picom='picom --experimental-backends'
+alias picom='picom --experimental-backends'
 alias mpvg='mpv --player-operation-mode=pseudo-gui'
 alias wcrf='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc' #feh
 alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #feh
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias bls='betterlockscreen -u $(ls /media/d/Personal/Image/walls/*|sxiv -tio)'
+alias gitp='cat /media/d/Personal/Doc/git-token.txt|xclip -selection clipboard'
 alias sptdl='echo "URL > ";read spotdlurl;spotdl $spotdlurl --of m4a -o /media/d/Personal/Musik/Download'
 alias sptdlc='spotdl $(xclip -o -selection clipboard) --of m4a -o /media/d/Personal/Musik/Download'
 alias ls='ls -ah --color=auto --group-directories-first'
