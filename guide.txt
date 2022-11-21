@@ -3,7 +3,7 @@ multilib => /etc/pacman.conf
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
 yay --noconfirm -Syu
-yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware  calc bc htop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim calc brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice
+yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 
@@ -30,6 +30,10 @@ https://github.com/dcx86r/cmus-notify
 yay -S testdisk
 https://www.youtube.com/watch?v=EmG0wLcwVaM
 https://www.youtube.com/watch?v=Kkt1-QeS9Qs
+
+#Arch overwrite install
+sudo pacman -S package-name --overwrite '*'
+yay -S package-name --overwrite '*'
 
 #Khinsider Bulk
 Teamper Monkey
@@ -111,6 +115,10 @@ nmcli
 #Arduino can't upload to port ...
 sudo chmod a+rw /dev/tty$(USB...)
 
+#Discord update
+https://wiki.archlinux.org/title/Discord#Discord_asks_for_an_update_not_yet_available_in_the_repository
+https://www.youtube.com/watch?v=3OEfr7L-gUk [4:04]
+
 #CUPS
 get driver : https://www.openprinting.org/printers
 yay system-config-printer cups cups-pdf
@@ -148,6 +156,9 @@ yay -S tor-browser
 
 #Audiobookbay magnet
 hash info
+
+#Libgen torrent
+MD5
 
 #Remove open with wine
 ~/.local/share/applications
@@ -225,6 +236,17 @@ https://www.youtube.com/watch?v=0Ux9bz_Tfw0
 GRUB_DEFAULT=saved #change to saved
 GRUB_CMDLINE_LINUX_DEFAULT="resume=UUID=34c1700a-792b-41bf-9ceb-c2bc955932de loglevel=3 audit=0 nomodset" #remove quiet
 
+#grub fucked up
+boot to live usb
+sudo mount /dev/sdax1 /mnt
+sudo mount /dev/sdax2 /mnt/boot/efi
+sudo arch-chroot /mnt
+sudo os-prober
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+#ntfs drive mounted but read only
+boot to windows -> continue to windows 1 time
+
 #Change disc lable
 https://askubuntu.com/questions/1103569/how-do-i-change-the-label-reported-by-lsblk
 
@@ -278,6 +300,11 @@ yay -S python-pip
 gtk-update-icon-cache -f -t ~/.icons/<theme_name>
 gtk-update-icon-cache -f -t /usr/share/icons/<theme_name>
 
+#Pass word gen 
+https://www.fosslinux.com/45609/ways-generate-random-password-linux.htm
+openssl rand -base64 14
+gpg --gen-random --armor 1 14
+
 #find keyboard code/XF86..
 xev or sudo showkey -a,k,s
 
@@ -297,11 +324,16 @@ xdg-mime default libreoffice-calc.desktop text/csv
 #Add create new file option
 paste file in ~/Template
 
+# One drive
+Sing in windows > turn off deaman ... in onedrive setting
+
 # The sims 4 mod location
 $HOME/.steam/steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/My Documents/Electronic Arts/The Sims 4
+/media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/Documents/Electronic Arts/The Sims 4/Mods
+cd /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser;rm -r Documents;ln -s -d /media/c/Users/Acer/OneDrive/Documents Documents
 
 #troubleshoot slow bio boot
 1) reset bios (slow boot to grub or boot entry)
 	+ fix slow bios boot / long bios boot
 	+ fix bluetooth in linux
-2) reinstall linux linux-headers grub
+2) reinstall linux linux-headers grub --overwrite
