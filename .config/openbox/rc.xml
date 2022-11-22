@@ -328,14 +328,14 @@
         <command>alacritty</command>
       </action>
     </keybind>
-    <keybind key="W-A-t">
-      <action name="Execute">
-        <command>termite</command>
-      </action>
-    </keybind>
     <keybind key="W-Return">
       <action name="Execute">
         <command>rofi -show run</command>
+      </action>
+    </keybind>
+    <keybind key="W-A-Return">
+      <action name="Execute">
+        <command>rofi -show drun</command>
       </action>
     </keybind>
     <keybind key="W-S-e">

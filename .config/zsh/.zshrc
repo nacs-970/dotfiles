@@ -9,8 +9,8 @@ export PATH="$HOME/.local/bin:$PATH"
 autoload -U colors && colors
 
 #Enable History
-HISTSIZE=2500
-SAVEHIST=2500
+HISTSIZE=10000
+SAVEHIST=10000
 
 #Basic auto/tab complete:
 autoload -U compinit
@@ -55,8 +55,8 @@ alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*
 alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #feh
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias bls='betterlockscreen -u $(ls /media/d/Personal/Image/walls/*|sxiv -tio)'
-alias sptdl='echo "URL > ";read spotdlurl;spotdl $spotdlurl --of m4a -o /media/d/Personal/Musik/Download'
-alias sptdlc='spotdl $(xclip -o -selection clipboard) --of m4a -o /media/d/Personal/Musik/Download'
+alias sptdl='echo "URL > ";read spotdlurl;spotdl download --format m4a --output /media/d/Personal/Musik/Download $spotdlurl'
+alias sptdlc='spotdl download --format m4a --output /media/d/Personal/Musik/Download $(xclip -o -selection clipboard)'
 alias gitp='cat /media/d/Personal/Doc/git-token.txt|xclip -selection clipboard'
 alias ls='ls -ah --color=auto --group-directories-first'
 alias sxiv='sxiv -a'

@@ -1,5 +1,6 @@
-nm-applet &
-volumeicon &
+nm-applet&
+blueman-applet&
+pa-applet&
 nitrogen --restore &
 tint2 &
 dunst &
