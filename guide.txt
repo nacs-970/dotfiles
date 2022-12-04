@@ -3,8 +3,8 @@ multilib => /etc/pacman.conf
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
 yay --noconfirm -Syu
-yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git
-yay -c;yay -Scc;yay -Sc
+yay --noconfirm -S binutils fakeroot dkms zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git joplin-appimage 
+yay -c;yay -Scc;yay -Sc;sudo dkms autoinstall
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 
 #Home mode
@@ -65,6 +65,9 @@ add :
 - https://downloads.khinsider.com/
 - https://www.sittingonclouds.net/
 
+#khinisder userscript download all
+Tampermonkey -> https://codeberg.org/sun/userscripts/src/branch/main/user/VGMLoaderX.user.js#bypass=true -> remove all error line (librewolf)
+
 #ffmpeg albumart extraction
 ffmpeg -i input.xxx -an -vcodec copy cover.jpg
 
@@ -83,6 +86,9 @@ convert a.jpg -quality '70%' b.jpg
 
 #resize image
 convert a.jpg -resize 1920x1080 b.jpg
+
+#Batch convert img
+for i in *.png;do convert $i ${i%.*}.jpg;done
 
 #tranfer music to andriod no data loss
 check coverart
@@ -182,10 +188,13 @@ cat a.jpg b.zip > c.jpg
 	- remove linux runtime soilder and reinstall proton + runtime
 	- if can't > launch option = PROTON_USE_WINED3D11=1 %command%
 
-
 #Steam connection error
 1) ##temp| terminal steam -tcp
 2) copy nameserve in '/run/systemd/resolve/stub-resolv.conf' to /etc/resolv.conf
+
+#Steam Warframe not launch
+Move runtime to ext4
+remove gamoderun in launch option
 
 #SAM [Steam Achievements Manager]
 yay -S samrewritten-git
@@ -324,6 +333,26 @@ xdg-mime default libreoffice-calc.desktop text/csv
 #Add create new file option
 paste file in ~/Template
 
+#Notepad++ replace
+https://www.winhelponline.com/blog/notepad-plus-find-and-replace-text/
+
+    Find what: -.*
+    Replace with:  leave it empty
+    Set the Search mode to Regular expression
+    Uncheck matches newline
+    Click Replace All
+
+::Before::
+accesschk.exe - from Sysinternals
+AccessEnum.exe - from Sysinternals
+AddrView.exe - from NirSoft
+activehotkeys.exe - from another vendor
+::After::
+accesschk.exe 
+AccessEnum.exe 
+AddrView.exe 
+activehotkeys.exe
+
 # One drive
 Sing in windows > turn off deaman ... in onedrive setting
 
@@ -333,7 +362,10 @@ $HOME/.steam/steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/My D
 cd /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser;rm -r Documents;ln -s -d /media/c/Users/Acer/OneDrive/Documents Documents
 
 #troubleshoot slow bio boot
+0) Swap windows boot to first -> reboot -> boot menu -> arch
 1) reset bios (slow boot to grub or boot entry)
 	+ fix slow bios boot / long bios boot
 	+ fix bluetooth in linux
 2) reinstall linux linux-headers grub --overwrite
+3) vim etc/default/grub  -> remove nomodeset
+4) yay -S dkms -> sudo dkms autoinstall
