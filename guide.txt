@@ -208,6 +208,12 @@ sudo vim /etc/lightdm/lightdm.conf
 [LightDM]
 logind-check-graphical=true
 
+#lightdm manual login
+sudo vim /etc/lightdm/lightdm.conf
+[SeatDefaults]
+greeter-show-manual-login = true
+greeter-hide-users = true
+
 #laptop - touchpad scrolling 
 vim /etc/X11/xorg.conf.d/30-touchpad.conf
 Option "NaturalScrolling" "on"
@@ -365,6 +371,7 @@ cd /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser;rm -r
 0) Swap windows boot to first -> reboot -> boot menu -> arch
 0.1) Fastboot on
 0.2) boot to live usb ejcect while core boot
+0.3) check fstab swap
 1) reset bios (slow boot to grub or boot entry)
 	+ fix slow bios boot / long bios boot
 	+ fix bluetooth in linux
