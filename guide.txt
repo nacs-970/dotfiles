@@ -384,7 +384,7 @@ toolkit.telemetry.enabled = false
 #Take 2k screen shot in 1080p X11
 xrandr --output eDP --scale 2x2 --panning 3840x2160;sleep 10;xrandr --output eDP --scale 1x1 --panning 1920x1080
 
-#Web scraping
+#Web scraping (https://unix.stackexchange.com/questions/181254/how-to-use-grep-and-cut-in-script-to-obtain-website-urls-from-an-html-file)
 wget $(curl https:\\www.web.com |grep -Eo '<img src[^>]+>'|cut -d\" -f2)
 
 #troubleshoot slow bio boot
