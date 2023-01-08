@@ -89,6 +89,11 @@ convert a.jpg -resize 1920x1080 b.jpg
 
 #Batch convert img
 for i in *.png;do convert $i ${i%.*}.jpg;done
+mkdir re;for i in *;do convert  $i -resize 75% re/${i%.*}.jpg;done;rm *.png;mv re/* .;rm -rf re;cd ..
+convert "$(xclip -o -selection clipboard)"  -resize 75%  "$(xclip -o -selection clipboard)"
+
+#Zathura gap
+make sure in resize with same scale
 
 #tranfer music to andriod no data loss
 check coverart
@@ -285,6 +290,7 @@ ui.key.menuAccessKeyFocuses false
 browser.cache.disk.enable false
 full-screen-api.transition-duration.enter 0 0
 full-screen-api.transition-duration.leave 0 0
+identity.fxaccounts.enabled false
 
 #mpv - ff2mpv
 $ git clone https://github.com/woodruffw/ff2mpv
@@ -366,6 +372,17 @@ Sing in windows > turn off deaman ... in onedrive setting
 $HOME/.steam/steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/My Documents/Electronic Arts/The Sims 4
 /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/Documents/Electronic Arts/The Sims 4/Mods
 cd /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser;rm -r Documents;ln -s -d /media/c/Users/Acer/OneDrive/Documents Documents
+
+#Firefox about:config
+identity.fxaccounts.enabled = false
+ui.key.menuAccessKeyFocuses = false
+browser.cache.disk.enable = false
+full-screen-api.transition-duration.enter 0 0	
+full-screen-api.transition-duration.leave 0 0
+toolkit.telemetry.enabled = false
+
+#Take 2k screen shot in 1080p X11
+xrandr --output eDP --scale 2x2 --panning 3840x2160;sleep 10;xrandr --output eDP --scale 1x1 --panning 1920x1080
 
 #troubleshoot slow bio boot
 0) Swap windows boot to first -> reboot -> boot menu -> arch
