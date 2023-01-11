@@ -49,7 +49,7 @@ alias vim='nvim'
 alias feh='feh -g 1280x720 -z'
 alias sourcez='source ~/.config/zsh/.zshrc'
 #alias picom='picom --experimental-backends'
-alias mpvg='mpv --player-operation-mode=pseudo-gui'
+alias mpvg='mpv --player-operation-mode=pseudo-gui&disown'
 alias wcrf='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc' #feh
 alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #feh
