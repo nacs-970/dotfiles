@@ -67,5 +67,5 @@ alias mv='mv -iv'
 alias grep='grep --color=auto'
 
 #pywal auto
-wal -q -i $(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//') #nitrogen
+wal -q -i "$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')" #nitrogen
 #wal -q -i $(grep feh ~/.fehbg |awk '{print $4}' | sed -e "s/'//g") #feh
