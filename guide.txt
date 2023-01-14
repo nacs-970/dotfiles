@@ -387,6 +387,9 @@ xrandr --output eDP --scale 2x2 --panning 3840x2160;sleep 10;xrandr --output eDP
 #Web scraping (https://unix.stackexchange.com/questions/181254/how-to-use-grep-and-cut-in-script-to-obtain-website-urls-from-an-html-file)
 wget $(curl https:\\www.web.com |grep -Eo '<img src[^>]+>'|cut -d\" -f2)
 
+#Wine
+ln -s -d /mnt/d/linux_game/.wine .wine
+
 #troubleshoot slow bio boot
 0) Swap windows boot to first -> reboot -> boot menu -> arch
 0.1) Fastboot on
