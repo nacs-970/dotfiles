@@ -37,8 +37,8 @@ window.inactive.button.*.image.color: #E6E6E6
 window.inactive.button.disabled.image.color: #E6E6E6
 
 !! Borders
-border.width: 2
-padding.width: 12
+border.width: 0
+padding.width: 10
 padding.height: 5
 window.client.padding.width: 0
 window.client.padding.height: 0
