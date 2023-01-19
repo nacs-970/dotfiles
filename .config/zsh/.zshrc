@@ -56,7 +56,7 @@ alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source 
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias bls='betterlockscreen -u $(ls /media/d/Personal/Image/walls/*|sxiv -tio)'
 alias sptdl='echo "URL > ";read spotdlurl;spotdl download --format m4a --output /media/d/Personal/Musik/Download $spotdlurl'
-alias sptdlc='spotdl download --format m4a --output /media/d/Personal/Musik/Download $(xclip -o -selection clipboard)'
+alias sptdlc='spotdl download --format m4a --output /media/d/Personal/Musik/Download "$(xclip -o -selection clipboard)"'
 alias gitp='cat /media/d/Personal/Doc/git-token.txt|xclip -selection clipboard'
 alias ls='ls -ah --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
