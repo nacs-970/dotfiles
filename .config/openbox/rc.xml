@@ -456,28 +456,41 @@
       <action name="Execute">
         <command>amixer set Master toggle</command>
       </action>
+      <action name="Execute">
+        <command>notify-send "Mute Vol"</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPause">
+      <action name="Execute">
+        <command>playerctl pause</command>
+      </action>
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>cmus-remote -u</command>
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioStop">
+      <action name="Execute">
+        <command>playerctl stop</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
       <action name="Execute">
-        <command>cmus-remote -n</command>
+        <command>playerctl next</command>
       </action>
     </keybind>
     <keybind key="XF86AudioPrev">
       <action name="Execute">
-        <command>cmus-remote -r</command>
+        <command>playerctl previous</command>
       </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>amixer set Master 5%+</command>
+        <command>vol</command>
       </action>
       <action name="Execute">
-        <command>vol</command>
+        <command>amixer set Master 5%+</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
