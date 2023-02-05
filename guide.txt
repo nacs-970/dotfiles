@@ -92,6 +92,13 @@ for i in *.png;do convert $i ${i%.*}.jpg;done
 mkdir re;for i in *;do convert  $i -resize 75% re/${i%.*}.jpg;done;rm *.png;mv re/* .;rm -rf re;cd ..
 convert "$(xclip -o -selection clipboard)"  -resize 75%  "$(xclip -o -selection clipboard)"
 
+#Batch rename char after file exts
+https://askubuntu.com/questions/976368/how-to-remove-characters-from-file-names-using-command-line
+
+#Img from url
+wget $(curl https://mangakakalot.com/chapter/toki_doki/chapter_0 |grep -Eo '<img src[^>]+>'|cut -d\" -f2)A
+wget $(curl 'https://multporn.net/hentai_manga/a_suspiciously_erotic_childhood_friend'|grep -Eo 'https://multporn.net/sites/default/files/styles/juicebox_2k/public/hentai_manga/others/gudl_a_suspiciously_erotic_childhood_friend/[^>]+'|cut -d\? -f1)
+
 #Zathura gap
 make sure in resize with same scale
 
