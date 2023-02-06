@@ -91,6 +91,7 @@ convert a.jpg -resize 1920x1080 b.jpg
 for i in *.png;do convert $i ${i%.*}.jpg;done
 mkdir re;for i in *;do convert  $i -resize 75% re/${i%.*}.jpg;done;rm *.png;mv re/* .;rm -rf re;cd ..
 convert "$(xclip -o -selection clipboard)"  -resize 75%  "$(xclip -o -selection clipboard)"
+for i in *.png;do convert $i ${i%.png}.jpg;done
 
 #Batch rename char after file exts
 https://askubuntu.com/questions/976368/how-to-remove-characters-from-file-names-using-command-line
