@@ -6,6 +6,7 @@ yay --noconfirm -Syu
 yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git joplin-appimage 
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
+picom -b
 
 #Home mode
 yay -S zoom steam librewolf-bin discord gimp krita kdenlive mpv cmus libreoffice-still vscodium-bin spotify spotblock-rs notepadqq xournalpp qbittorrent handbreak obs-studio easytag mkvtoolnix-gui thokr-git veikk-tablet-driver zsh zsh-autosuggestions zsh-syntax-highlighting 
@@ -95,6 +96,8 @@ for i in *.png;do convert $i ${i%.png}.jpg;done
 
 #Batch rename char after file exts
 https://askubuntu.com/questions/976368/how-to-remove-characters-from-file-names-using-command-line
+for i in *.m4a;do mv $i "$(echo $i|cut -d\- -f3)";done
+
 
 #Img from url
 wget $(curl https://mangakakalot.com/chapter/toki_doki/chapter_0 |grep -Eo '<img src[^>]+>'|cut -d\" -f2)A
@@ -148,6 +151,7 @@ lpadmin -p <Printer Name> -o job-sheets-default=none
 #CUPS MP280
 yay -S cnijfilter-mp280 scangearmp-mp280
 first page print is secret page
+not printing = reinstall driver and restart printer
 
 #VPN
 yay -S openvpn 
@@ -165,9 +169,11 @@ proton GE
 Async
 
 #Screnn share android
-yay -S scrcpy
+https://medium.com/android-news/wireless-debugging-through-adb-in-android-using-wifi-965f7edd163a
+yay -S scrcpy sndcpy
 Phone : Open debuginh via usb
-scrcpy -M # allow mouse on phone
+scrcpy -M -K # allow mouse & sound on phone
+sndcpy 192.168.0.200:5555 (need to install snd on phone)
 
 #Tor
 yay -S tor-browser
@@ -388,6 +394,7 @@ browser.cache.disk.enable = false
 full-screen-api.transition-duration.enter 0 0	
 full-screen-api.transition-duration.leave 0 0
 toolkit.telemetry.enabled = false
+browser.download.useToolkitUI = true
 
 #Take 2k screen shot in 1080p X11
 xrandr --output eDP --scale 2x2 --panning 3840x2160;sleep 10;xrandr --output eDP --scale 1x1 --panning 1920x1080
@@ -397,6 +404,11 @@ wget $(curl https:\\www.web.com |grep -Eo '<img src[^>]+>'|cut -d\" -f2)
 
 #Wine
 ln -s -d /mnt/d/linux_game/.wine .wine
+
+#Battery level
+https://askubuntu.com/questions/69556/how-do-i-check-the-batterys-status-via-the-terminal
+upower -e
+upower -i /org/freedesktop/UPower/devices/battery_BAT1
 
 #troubleshoot slow bio boot
 0) Swap windows boot to first -> reboot -> boot menu -> arch
