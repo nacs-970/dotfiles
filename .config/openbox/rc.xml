@@ -358,7 +358,7 @@
         <command>scrot ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
       </action>
       <action name="Execute">
-        <command>dunstify Screenshotted!</command>
+        <command>notify-send -t 450 📸!</command>
       </action>
     </keybind>
     <keybind key="W-Print">
@@ -366,17 +366,17 @@
         <command>scrot -s -l mode=edge ~/Pictures/%Y_%m_%d_%H_%M_%S.jpg</command>
       </action>
       <action name="Execute">
-        <command>dunstify Screenshotted!</command>
+        <command>notify-send -t 450 📸!</command>
       </action>
     </keybind>
     <keybind key="Caps_Lock">
       <action name="Execute">
-        <command>dunstify Caplock!</command>
+        <command>notify-send -t 450 Caplock!</command>
       </action>
     </keybind>
     <keybind key="W-space">
       <action name="Execute">
-        <command>dunstify Switched-language!</command>
+        <command>notify-send -t 450 🔄!</command>
       </action>
     </keybind>
     <!--Tilling key-->
