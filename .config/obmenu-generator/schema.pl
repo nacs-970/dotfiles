@@ -30,7 +30,7 @@ my $editor = $CONFIG->{editor};
 our $SCHEMA = [
 
     #          COMMAND                 LABEL              ICON
-    {item => ['pcmanfm',       'File Manager', 'system-file-manager']},
+    {item => ['nemo',       'File Manager', 'system-file-manager']},
     {item => ['alacritty',            'Terminal',     'utilities-terminal']},
     {item => ['librewolf', 'Web Browser',  'web-browser']},
     {item => ['rofi -show run',            'Run command',  'system-run']},
