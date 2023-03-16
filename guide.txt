@@ -95,14 +95,24 @@ mkdir re;for i in *;do convert  $i -resize 75% re/${i%.*}.jpg;done;rm *.png;mv r
 convert "$(xclip -o -selection clipboard)"  -resize 75%  "$(xclip -o -selection clipboard)"
 for i in *.png;do convert $i ${i%.png}.jpg;done
 
-#Batch rename char after file exts
+#Batch rename char before file exts
 https://askubuntu.com/questions/976368/how-to-remove-characters-from-file-names-using-command-line
+renamed '01_1644787774.chess45_01.jpg' -> '01_1644787774.jpg'
+renamed '02_1649091297.chess45_02a.jpg' -> '02_1649091297.jpg'
+renamed '03_1649202160.chess45_02a.jpg' -> '03_1649202160.jpg'
+
 for i in *.m4a;do mv $i "$(echo $i|cut -d\- -f3)";done
 
+https://stackoverflow.com/questions/14928238/bash-remove-numbers-at-the-end-of-names
+for i in *.jpg; do mv "$i" "${i%-*}.jpg"; done
+'01_1644787774.jpg' -> '01.jpg'
+'02_1649091297.jpg' -> '02.jpg'
+'03_1649202160.jpg' -> '03.jpg'
+'04_1653161177.jpg' -> '04.jpg'
 
 #Img from url
 wget $(curl https://mangakakalot.com/chapter/toki_doki/chapter_0 |grep -Eo '<img src[^>]+>'|cut -d\" -f2)A
-wget $(curl 'https://multporn.net/hentai_manga/a_suspiciously_erotic_childhood_friend'|grep -Eo 'https://multporn.net/sites/default/files/styles/juicebox_2k/public/hentai_manga/others/gudl_a_suspiciously_erotic_childhood_friend/[^>]+'|cut -d\? -f1)
+wget $(curl 'https://multmage.net/hmanga/a_suspiciously_childhood_friend'|grep -Eo 'https://multmage.net/sites/default/files/styles/beebox_4k/public/manga/others/gudl_a_suspiciously_childhood_friend/[^>]+'|cut -d\? -f1)
 
 #Zathura gap
 make sure in resize with same scale
