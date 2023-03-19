@@ -3,10 +3,9 @@ multilib => /etc/pacman.conf
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
 yay --noconfirm -Syu
-yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl nemo ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git joplin-appimage 
+yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git joplin-appimage 
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
-gsettings set org.cinnamon.desktop.default-applications.terminal exec alacritty
 picom -b
 
 #Home mode
@@ -101,7 +100,7 @@ renamed '01_1644787774.chess45_01.jpg' -> '01_1644787774.jpg'
 renamed '02_1649091297.chess45_02a.jpg' -> '02_1649091297.jpg'
 renamed '03_1649202160.chess45_02a.jpg' -> '03_1649202160.jpg'
 
-for i in *.m4a;do mv $i "$(echo $i|cut -d\- -f3)";done
+for i in *.m4a;do mv $i "$(echo $i|cut -d\- -f3).m4a";done
 
 https://stackoverflow.com/questions/14928238/bash-remove-numbers-at-the-end-of-names
 for i in *.jpg; do mv "$i" "${i%-*}.jpg"; done
@@ -110,9 +109,15 @@ for i in *.jpg; do mv "$i" "${i%-*}.jpg"; done
 '03_1649202160.jpg' -> '03.jpg'
 '04_1653161177.jpg' -> '04.jpg'
 
-#Img from url
+#Img Scrapping
 wget $(curl https://mangakakalot.com/chapter/toki_doki/chapter_0 |grep -Eo '<img src[^>]+>'|cut -d\" -f2)A
 wget $(curl 'https://multmage.net/hmanga/a_suspiciously_childhood_friend'|grep -Eo 'https://multmage.net/sites/default/files/styles/beebox_4k/public/manga/others/gudl_a_suspiciously_childhood_friend/[^>]+'|cut -d\? -f1)
+
+# Get all url
+curl 'https://www.mangaread.org/manga/love-advice-from-the-great-duke-of-hell/' | grep -Eo "https://www.mangaread.org/manga/love-advice-from-the-great-duke-of-hell/chapter-[^/]+"
+for i in {1..5};do mkdir $i;cd $i;touch hello;cd ..;done
+while read i;do echo $i|cut -d\/ -f6;done < list.txt
+while read i;do mkdir $(echo "$i"|cut -d\/ -f6);cd $(echo "$i"|cut -d\/ -f6);wget $(curl "$i"|grep -Eo 'https://www.mangaread.org/wp-content/uploads/WP-manga/data/manga_63417195079b7/[^>]+'|cut -d\" -f1);cd ..;done < list.txt
 
 #Zathura gap
 make sure in resize with same scale
@@ -394,9 +399,23 @@ activehotkeys.exe
 Sing in windows > turn off deaman ... in onedrive setting
 
 # The sims 4 mod location
-$HOME/.steam/steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/My Documents/Electronic Arts/The Sims 4
-/media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/Documents/Electronic Arts/The Sims 4/Mods
-cd /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser;rm -r Documents;ln -s -d /media/c/Users/Acer/OneDrive/Documents Documents
+	$HOME/.steam/steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/Documents/Electronic Arts/The Sims 4
+	or
+	/media/d/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser
+	/media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser/Documents/Electronic Arts/The Sims 4/Mods
+	cd /media/x/Steam/steamapps/compatdata/1222670/pfx/drive_c/users/steamuser;rm -r Documents;ln -s -d /media/c/Users/Acer/OneDrive/Documents Documents
+
+# League of Legends
+	already installed
+	add riot client to lutris
+	install lol
+	already install
+	path
+	wait;done
+	
+	fix didn't appear on screen
+	configure in lutris
+	wineprefix -> prefix
 
 #Firefox about:config
 identity.fxaccounts.enabled = false
