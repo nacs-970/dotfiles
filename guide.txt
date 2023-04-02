@@ -111,8 +111,8 @@ for i in *.jpg; do mv "$i" "${i%-*}.jpg"; done
 
 #Img Scrapping
 wget $(curl https://mangakakalot.com/chapter/toki_doki/chapter_0 |grep -Eo '<img src[^>]+>'|cut -d\" -f2)A
-wget $(curl 'https://multmage.net/hmanga/a_suspiciously_childhood_friend'|grep -Eo 'https://multmage.net/sites/default/files/styles/beebox_4k/public/manga/others/gudl_a_suspiciously_childhood_friend/[^>]+'|cut -d\? -f1)
-
+wget $(curl 'https://multmage.net/manga/a_suspiciously_childhood_friend'|grep -Eo 'https://multmage.net/sites/default/files/styles/beebox_4k/public/manga/others/gudl_a_suspiciously_childhood_friend/[^>]+'|cut -d\? -f1)
+wget $(curl 'https://multmage.net/manga/koi' | grep -Eo 'https://multmage.net/sites/default/files/styles/beebox_4k/public/manga/others/jorori_koi/[^?]+')
 # Get all url
 curl 'https://www.mangaread.org/manga/love-advice-from-the-great-duke-of-hell/' | grep -Eo "https://www.mangaread.org/manga/love-advice-from-the-great-duke-of-hell/chapter-[^/]+"
 for i in {1..5};do mkdir $i;cd $i;touch hello;cd ..;done
@@ -190,6 +190,12 @@ yay -S scrcpy sndcpy
 Phone : Open debuginh via usb
 scrcpy -M -K # allow mouse & sound on phone
 sndcpy 192.168.0.200:5555 (need to install snd on phone)
+
+# sndcpy mpv
+sudo vim /opt/sndcpy/sndcpy
+add
+MPV=${MPV:-mpv}
+"$MPV" --demuxer=rawaudio --demuxer-rawaudio-rate=48000 --no-cache --untimed --no-demuxer-thread --demuxer-cache-wait=no --player-operation-mode=cplayer tcp://localhost:"$SNDCPY_PORT"
 
 #Tor
 yay -S tor-browser
@@ -439,6 +445,8 @@ ln -s -d /mnt/d/linux_game/.wine .wine
 https://askubuntu.com/questions/69556/how-do-i-check-the-batterys-status-via-the-terminal
 upower -e
 upower -i /org/freedesktop/UPower/devices/battery_BAT1
+
+
 
 #troubleshoot slow bio boot
 0) Swap windows boot to first -> reboot -> boot menu -> arch
