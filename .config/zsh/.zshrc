@@ -55,8 +55,8 @@ alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*
 alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #feh
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias bls='betterlockscreen -u $(ls /media/d/Personal/Image/walls/*|sxiv -tio)'
-alias sptdl='echo "URL > ";read spotdlurl;spotdl download --format m4a --output /media/d/Personal/Musik/Download $spotdlurl'
-alias sptdlc='spotdl download --format m4a --output /media/d/Personal/Musik/Download "$(xclip -o -selection clipboard)"'
+alias sptdl='echo "URL > ";read spotdlurl;spotdl $spotdlurl --format m4a --output /media/d/Personal/Musik/Download'
+alias sptdlc='spotdl "$(xclip -o -selection clipboard)" --format m4a --output /media/d/Personal/Musik/Download '
 alias gitp='cat /media/d/Personal/Doc/git-token.txt|xclip -selection clipboard'
 alias ls='ls -ah --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
@@ -65,7 +65,7 @@ alias mkdir='mkdir -pv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias grep='grep --color=auto'
-
 #pywal auto
 wal -q -i "$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')" #nitrogen
 #wal -q -i $(grep feh ~/.fehbg |awk '{print $4}' | sed -e "s/'//g") #feh
+export PATH=$PATH:/home/nacs/.spicetify
