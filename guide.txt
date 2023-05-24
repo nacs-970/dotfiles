@@ -153,6 +153,22 @@ while read i;do mkdir $(echo "$i"|cut -d\/ -f4);cd $(echo "$i"|cut -d\/ -f4);wge
 
 while read i;do mkdir $(echo "$i"|cut -d\/ -f5);cd $(echo "$i"|cut -d\/ -f5);wget $(curl $i|grep -Eo "https://multmage.net/sites/default/files/styles/beebox_2k/public/manga/others/peach_demon_king[^\?]+");cd ..;done<list
 
+for i in {1..44};do curl "https://wallhaven.cc/search?categories=001&purity=010&topRange=1M&sorting=toplist&order=desc&ai_art_filter=1&page=$i"| grep -Eo "https://wallhaven.cc/w/[^\"]+";done > list
+while read i;do wget -nc $(curl $i|grep -Eo "https://w.wallhaven.cc/full/[^\"]+");done < list
+diff -c dupe2 dupe | grep "\- "|grep -v "\-\-\-"> lost
+ls | cut -d- -f2|cut -d\. -f1 > dupe
+cat list|cut -d\/ -f5 > dupe2
+while read i;do wget $(curl $i|grep -Eo "https://w.wallhaven.cc/full/[^\"]+");done < lost
+for i in *.png;do convert $i -resize "85%" -quality "75%" f/${i%.png}.jpg;done
+for i in *.jpg;do convert $i -resize "85%" -quality "75%" f/$i;done
+
+nf : f12 > network > cookie wtih cf_ & rem > curl --cookie "var" --limit-rate 10k
+for i in {1..63};do curl --cookie "$(cat token)" --limit-rate 10k "https://wallhaven.cc/search?categories=001&purity=001&topRange=1M&sorting=toplist&order=desc&ai_art_filter=1&page=$i" | grep -Eo "https://wallhaven.cc/w/[^\"]+";done > list
+while read i;do wget -nc $(curl --cookie "$(cat token)" --limit-rate 10k $i|grep -Eo "https://w.wallhaven.cc/full/[^\"]+");done < list
+ls | cut -d- -f2|cut -d\. -f1 > dupe
+cat list-tm_6-5-23|cut -d\/ -f5 > dupe2|sort -u dupe2 > dupe2
+diff -c dupe2 dupe | grep "\- "|grep -v "\-\-\-"> lost;cat lost | sed -i 's/- /https://wallhaven.cc/w//g' lost # manully replace
+
 #Zathura gap
 make sure in resize with same scale
 
@@ -494,6 +510,10 @@ cd folder/
 python -m http.server
 find own public ip
 publicip:port
+
+# Syncthing
+change default folder
+https://docs.syncthing.net/v1.23.3/users/config.html?highlight=path#config-option-folder.path
 
 #troubleshoot slow bio boot
 0) Swap windows boot to first -> reboot -> boot menu -> arch
