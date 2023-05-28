@@ -3,16 +3,28 @@ multilib => /etc/pacman.conf
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
 yay --noconfirm -Syu
-yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git joplin-appimage 
+yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim vim-plug brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git obsidian-appimage syncthing opentabletdriver kdeconnect
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 picom -b
+systemctl --user daemon-reload;systemctl --user enable opentabletdriver --now
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+  vim ~/.config/nvim/lua/custom/chadrc.lua
+  https://github.com/NvChad/NvChad/discussions/1204
+  vim ~/.config/nvim/lua/core/init.lua
+  opt.mouse = ""
 
 vim replace newline and stil want a newline
 :% s/\n/a\r/g
 
 #Home mode
-yay -S zoom steam librewolf-bin discord gimp krita kdenlive mpv cmus libreoffice-still vscodium-bin spotify spotblock-rs notepadqq xournalpp qbittorrent handbreak obs-studio easytag mkvtoolnix-gui thokr-git veikk-tablet-driver zsh zsh-autosuggestions zsh-syntax-highlighting 
+yay -S steam firefox discord gimp krita kdenlive lutris mpv cmus libreoffice-still spotify notepadqq xournalpp qbittorrent handbreak obs-studio easytag mkvtoolnix-gui thokr-git zsh zsh-autosuggestions zsh-syntax-highlighting opentabletdriver alacritty neovim vim syncthing kdeconnect
+  bash <(curl -sSL https://raw.githubusercontent.com/SpotX-CLI/SpotX-Linux/main/install.sh)
+  git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+  vim ~/.config/nvim/lua/custom/chadrc.lua
+  https://github.com/NvChad/NvChad/discussions/1204
+  vim ~/.config/nvim/lua/core/init.lua
+  opt.mouse = ""
 
 #Dev mode
 yay -S neovim vim vscodium-bin libreolf-bin godot alacritty zsh zsh-autosuggestions zsh-syntax-highlighting 
@@ -393,9 +405,6 @@ librewolf)
 
 #Youtube conner problem ublockorigin
 setting -> My filters -> www.youtube.com##ytd-app:style(overflow: hidden !important;)
-
-#VKtablet autostart
-/etc/xdg/autostart/vktablet.desktop
 
 #pip error :
 - remove pip
