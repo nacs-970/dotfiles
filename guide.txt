@@ -3,7 +3,7 @@ multilib => /etc/pacman.conf
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
 yay --noconfirm -Syu
-yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim vim-plug brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 pa-applet-git dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git obsidian-appimage syncthing opentabletdriver kdeconnect tldr
+yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim vim-plug brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git obsidian-appimage syncthing opentabletdriver kdeconnect tldr
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 picom -b
@@ -13,6 +13,8 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
   https://github.com/NvChad/NvChad/discussions/1204
   vim ~/.config/nvim/lua/core/init.lua
   opt.mouse = ""
+fan_speed_control
+https://wiki.archlinux.org/title/fan_speed_control#amdgpu-fan
 
 vim replace newline and stil want a newline
 :% s/\n/a\r/g
@@ -182,6 +184,7 @@ cat list-tm_6-5-23|cut -d\/ -f5 > dupe2|sort -u dupe2 > dupe2
 diff -c dupe2 dupe | grep "\- "|grep -v "\-\-\-"> lost;cat lost | sed -i 's/- /https://wallhaven.cc/w//g' lost # manully replace
 
 for x in $(curl "https://www.wongnai.com/cooking/cookbooks/blood-sugar-control-recipes"|grep -Eo "recipes/[^\"]+" | sort -u);do echo "https://www.wongnai.com/$x";done | xclip -selection clipboard
+for x in $(curl "https://www.wongnai.com/cooking/cookbooks/blood-sugar-control-recipes"|grep -Eo "recipes/[^\<]+" | sort -u|cut -d\> -f2);do echo "$x";done | xclip -selection clipboard
 
 #Zathura gap
 make sure in resize with same scale
