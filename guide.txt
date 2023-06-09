@@ -13,8 +13,6 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
   https://github.com/NvChad/NvChad/discussions/1204
   vim ~/.config/nvim/lua/core/init.lua
   opt.mouse = ""
-fan_speed_control
-https://wiki.archlinux.org/title/fan_speed_control#amdgpu-fan
 
 vim replace newline and stil want a newline
 :% s/\n/a\r/g
@@ -31,7 +29,16 @@ yay -S steam firefox discord gimp krita kdenlive lutris mpv cmus libreoffice-sti
 #Dev mode
 yay -S neovim vim vscodium-bin libreolf-bin godot alacritty zsh zsh-autosuggestions zsh-syntax-highlighting 
 
-#XFCE Switch language
+# Reflector
+sudo vim /etc/xdg/reflector/reflector.conf
+sudo reflector --latest 15 --age 2 --fastest 15 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+--save /etc/pacman.d/mirrorlist
+--protocol https
+--fastest 15
+--latest 15
+--sort rate
+
+# XFCE Switch language
 xfce4-xkb-plugin
 
 #Install didn't detect hard disk 
@@ -511,6 +518,9 @@ ln -s -d /mnt/d/linux_game/.wine .wine
 https://askubuntu.com/questions/69556/how-do-i-check-the-batterys-status-via-the-terminal
 upower -e
 upower -i /org/freedesktop/UPower/devices/battery_BAT1
+
+# Pacman slow
+sudo reflector --latest 15 --age 2 --fastest 15 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 # Arduino 
 sudo chmod a+rw /dev/ttyUSB0
