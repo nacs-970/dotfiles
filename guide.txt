@@ -102,6 +102,10 @@ ffmpeg -i "$(ls *.mp3|head -1)" -an -vcodec copy cover.jpg;for i in *.mp3;do ffm
 #ffmpeg m4a to mp3 (copy cover)
 ffmpeg -i "$(ls *.m4a|head -1)" -an -vcodec copy cover.jpg;for i in *.m4a;do ffmpeg -i $i -i cover.jpg -c:a libmp3lame ${i%.*}.mp3;done;rm cover.jpg
 
+many directory
+for x in */;do cd $x;mkdir m4a;for i in *.mp3;do ffmpeg -i $i -vn -c:a aac m4a/${i%.*}.m4a;done;notify-send "Done\!";cd ..;done
+for x in */;do cd $x;mv m4a/* .;rm -rf *.mp3|rm -rf m4a/;cd ..;done
+
 #ffmpeg img to vid
 ffmpeg -loop 1 -framerate 1 -i a.jpg -c:v libx264 -t "time-duration-sec" x.mp4
 
