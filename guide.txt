@@ -3,7 +3,7 @@ multilib => /etc/pacman.conf
 multicore-build => /etc/makepkg.cong MAKEFLAGS="-jX[cpu core]"
 sudo pacman -Sy|sudo pacman -S base-devel git | git clone https://aur.archlinux.org/yay.git|cd yay/|makepkg -si
 yay --noconfirm -Syu
-yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf skanlite lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim vim-plug brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git obsidian-appimage syncthing opentabletdriver kdeconnect tldr
+yay --noconfirm -S binutils fakeroot zsh zsh-autosuggestions zsh-syntax-highlighting mkinitcpio-firmware libqalculate qalculate-gtk bc htop iftop filelight neofetch python nerd-fonts-inconsolata ttf-inconsolata ttf-vista-fonts ttf-ms-fonts noto-fonts-emoji xidlehook sxiv cmus harmonoid-bin playerctl pcmanfm ffmpeg yt-dlp bleachbit czkawka-gui-bin guvcview zathura zathura-cb zathura-djvu zathura-pdf-mupdf zathura-ps cups cups-pdf skanlite lib32-libpulse lib32-alsa-plugins zip unzip python-pywal cava tty-clock-git cbonsai rofi rofi-emoji vim neovim vim-plug brightnessctl pulsemixer pipewire pipewire-alsa pipewire-pulse pipewire-jack qlib32-pipewire qjackctl android-file-transfer alacritty termite lf-bin auto-cpufreq lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings betterlockscreen xarchiver xorg xorg-xset xorg-xinput openbox nitrogen tint2 volumeicon dunst xclip redshift scrot lxappearance lxappearance-obconf obmenu-generator obmenu picom noise-suppression-for-voice tenacity-git obsidian-appimage syncthing opentabletdriver kdeconnect tldr
 yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 picom -b
@@ -85,8 +85,8 @@ add :
 
 #Game ost
 - yt : 
-	- chapter : yt-dlp -f 140 --split-chapters -o "%(chapter_number)s.%(chapter)s.%(ext)s"
-	- playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s"
+	- chapter : yt-dlp -f 140 --split-chapters -o "%(chapter_number)s.%(chapter)s.%(ext)s" "$(xclip -o)"
+	- playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s" "$(xclip -o)"
 - https://downloads.khinsider.com/
 - https://www.sittingonclouds.net/
 
@@ -313,6 +313,9 @@ cat a.jpg b.zip > c.jpg
 #Steam connection error
 1) ##temp| terminal steam -tcp
 2) copy nameserve in '/run/systemd/resolve/stub-resolv.conf' to /etc/resolv.conf
+
+# Steam Let me choose another location
+yay -S xdg-desktop-portal
 
 #Steam Warframe not launch
 Move runtime to ext4
