@@ -197,6 +197,13 @@ diff -c dupe2 dupe | grep "\- "|grep -v "\-\-\-"> lost;cat lost | sed -i 's/- /h
 for x in $(curl "https://www.wongnai.com/cooking/cookbooks/blood-sugar-control-recipes"|grep -Eo "recipes/[^\"]+" | sort -u);do echo "https://www.wongnai.com/$x";done | xclip -selection clipboard
 for x in $(curl "https://www.wongnai.com/cooking/cookbooks/blood-sugar-control-recipes"|grep -Eo "recipes/[^\<]+" | sort -u|cut -d\> -f2);do echo "$x";done | xclip -selection clipboard
 
+for i in {1..2};do curl "https://a-booru.org/g/2658654/b0ab307708/?p=$(($i-1))" |grep -Eo "\"https://e-hentai.org/s/[^\"]+"|cut -d\" -f2;done > list
+for i in {1..2};do curl "$(xclip -o)/?p=$(($i-1))" |grep -Eo "\"https://e-hentai.org/s/[^\"]+"| cut -d\" -f2;done > list
+while read i;do wget -nc "$(curl $i|grep -Eo "src=\"[^\"]+"|cut -d\" -f2|grep '.jpg')";done < list
+
+curl "https://mangakakalot.com/manga/summer_ghost" | grep -Eo "https://mangakakalot.com/chapter/summer_ghost/chapter_[^\"]+" > list.txt
+while read i;do mkdir "$(echo $i|cut -d\/ -f6)";cd "$(echo $i|cut -d\/ -f6)";wget -nc --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/118.0" --referer="https://mangakakalot.com/" $(curl $i|grep -Eo "https://v12.mkklcdnv6tempv4.com[^\"]+");cd ..;done < list.txt
+
 #Zathura gap
 make sure in resize with same scale
 
