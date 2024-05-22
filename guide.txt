@@ -37,6 +37,17 @@ sudo reflector --latest 15 --age 2 --fastest 15 --protocol https --sort rate --s
 --fastest 15
 --latest 15
 --sort rate
+sudo vim /etc/pacman.conf
+Server = http://mirror.archlinuxarm.org/archlinux/$repo/os/$arch
+[core] 
+Server = http://mirror.archlinuxarm.org/archlinux/$repo/os/$arch 
+Include = /etc/pacman.d/mirrorlist
+[extra] 
+Server = http://mirror.archlinuxarm.org/archlinux/$repo/os/$arch 
+Include = /etc/pacman.d/mirrorlist
+[core] 
+Server = http://mirror.archlinuxarm.org/archlinux/$repo/os/$arch 
+Include = /etc/pacman.d/mirrorlist
 
 # XFCE Switch language
 xfce4-xkb-plugin
@@ -87,6 +98,7 @@ add :
 - yt : 
 	- chapter : yt-dlp -f 140 --split-chapters -o "%(chapter_number)s.%(chapter)s.%(ext)s" "$(xclip -o)"
 	- playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s" "$(xclip -o)"
+  - video and audio : yt-dlp "$(xclip -o)"-f 400+140 --embed-subs
 - https://downloads.khinsider.com/
 - https://www.sittingonclouds.net/
 
@@ -102,6 +114,10 @@ ffmpeg -i "$(ls *.mp3|head -1)" -an -vcodec copy cover.jpg;for i in *.mp3;do ffm
 #ffmpeg m4a to mp3 (copy cover)
 ffmpeg -i "$(ls *.m4a|head -1)" -an -vcodec copy cover.jpg;for i in *.m4a;do ffmpeg -i $i -i cover.jpg -c:a libmp3lame ${i%.*}.mp3;done;rm cover.jpg
 
+#ffmpeg audio merge
+for a in *.ogg;do echo 'file '$a >> list.txt;done
+ffmpeg -f concat -i list.txt -safe 0 -c copy a.ogg
+
 many directory
 for x in */;do cd $x;mkdir m4a;for i in *.mp3;do ffmpeg -i $i -vn -c:a aac m4a/${i%.*}.m4a;done;notify-send "Done\!";cd ..;done
 for x in */;do cd $x;mv m4a/* .;rm -rf *.mp3|rm -rf m4a/;cd ..;done
@@ -111,6 +127,9 @@ ffmpeg -loop 1 -framerate 1 -i a.jpg -c:v libx264 -t "time-duration-sec" x.mp4
 
 #ffmpeg increase audio volume
 ffmpeg -i a.mp4 -af volume=7 -vn x.mp4
+
+#ffmpeg increase audio volume
+ffmpeg -i a.mp4 -filter:a "volume=10dB" -c:v copy out.mp4
 
 #Reduce image quality
 Install imagemagick
@@ -203,6 +222,12 @@ while read i;do wget -nc "$(curl $i|grep -Eo "src=\"[^\"]+"|cut -d\" -f2|grep '.
 
 curl "https://mangakakalot.com/manga/summer_ghost" | grep -Eo "https://mangakakalot.com/chapter/summer_ghost/chapter_[^\"]+" > list.txt
 while read i;do mkdir "$(echo $i|cut -d\/ -f6)";cd "$(echo $i|cut -d\/ -f6)";wget -nc --user-agent="Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/118.0" --referer="https://mangakakalot.com/" $(curl $i|grep -Eo "https://v12.mkklcdnv6tempv4.com[^\"]+");cd ..;done < list.txt
+
+curl "https://projectmoon.postype.com/series/875159/leviathanprojectmooncomicsenglish" | grep -Eo "https://projectmoon.postype.com/post/[^\"]+" | sort -u > list
+curl "https://projectmoon.postype.com/series/875159/page/2" | grep -Eo "https://projectmoon.postype.com/post/[^\"]+" | sort -u >> list
+
+curl 'https://limbuscompany.fandom.com/wiki/Lobotomy_E.G.O::Regret_Faust/Voicelines' | grep -Eo 'https://static.wikia.nocookie.net/limbuscompany/images/[^\"]+'|grep -E "Lobo" > list
+while read i;do wget $i;done<list;rm list
 
 #Zathura gap
 make sure in resize with same scale
@@ -548,7 +573,8 @@ wget "$(curl https://ungoogled-software.github.io/ungoogled-chromium-binaries/|c
 # OpenDirectory
 Open port 8000 or else in router
 cd folder/
-python -m http.server
+python -m http.server port #default 8000
+python -n http.server 6958
 find own public ip
 publicip:port
 
