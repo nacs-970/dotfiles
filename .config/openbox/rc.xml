@@ -321,7 +321,7 @@
     </keybind>
     <keybind key="W-e">
       <action name="Execute">
-        <command>nemo</command>
+        <command>pcmanfm</command>
       </action>
     </keybind>
     <keybind key="W-t">
@@ -486,17 +486,33 @@
         <command>playerctl previous</command>
       </action>
     </keybind>
+    <keybind key="W-C-Up">
+      <action name="Execute">
+        <command>vol</command>
+      </action>
+      <action name="Execute">
+        <command>amixer -q set Master 5%+</command>
+      </action>
+    </keybind>
+    <keybind key="W-C-Down">
+      <action name="Execute">
+        <command>vol</command>
+      </action>
+      <action name="Execute">
+        <command>amixer -q set Master 5%-</command>
+      </action>
+    </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command>vol</command>
       </action>
       <action name="Execute">
-        <command>amixer set Master 5%+</command>
+        <command>pulsemixer --change-volume +5</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>amixer set Master 5%-</command>
+        <command>pulsemixer --change-volume -5</command>
       </action>
       <action name="Execute">
         <command>vol</command>

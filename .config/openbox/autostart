@@ -7,5 +7,6 @@ dunst &
 setxkbmap -layout us,th -option grp:win_space_toggle &
 xidlehook --detect-sleep --not-when-audio --timer 180 "xset dpms force off;betterlockscreen -l" ""&
 xidlehook --detect-sleep --not-when-audio --timer 600 "systemctl suspend" ""&
-xinput set-float-prop $(xinput list | grep Touch | awk '{print $6}' | sed -e 's/id=//') 'libinput Accel Speed' "0.55" &
+xinput set-float-prop $(xinput list | grep Touch | awk '{print $6}' | sed -e 's/id=//') 313 "0.55" &
 xinput set-float-prop $(xinput list | grep Logitech | awk '{print $7}' | sed -e 's/id=//') 'libinput Accel Speed' "0.75" &
+xset s off&

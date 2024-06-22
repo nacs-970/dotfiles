@@ -27,6 +27,7 @@ bindkey "^[[H" beginning-of-line #Home
 bindkey "^[[F" end-of-line #End
 bindkey "^[[5~" up-history #Page-up
 bindkey "^[[6~" down-history #Page-down
+bindkey '^R' history-incremental-search-backward #reverse-i-search
 
 #Plugin
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -56,7 +57,7 @@ alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source 
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias bls='betterlockscreen -u $(ls /media/d/Personal/Image/walls/*|sxiv -tio)'
 alias sptdl='echo "URL > ";read spotdlurl;spotdl $spotdlurl --format m4a --output /media/d/Personal/Musik/Download'
-alias sptdlc='spotdl "$(xclip -o -selection clipboard)" --format m4a --output /media/d/Personal/Musik/Download '
+alias sptdlc='spotdl "$(xclip -o -selection clipboard)" --format m4a --output /media/d/Personal/Musik/Download'
 alias gitp='cat /media/d/Personal/Doc/git-token.txt|xclip -selection clipboard'
 alias ls='ls -ah --color=auto --group-directories-first'
 alias sxiv='sxiv -a'
