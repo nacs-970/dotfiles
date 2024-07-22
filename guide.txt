@@ -8,11 +8,20 @@ yay -c;yay -Scc;yay -Sc
 systemctl enable auto-cpufreq;systemctl enable betterlockscreen@USER --now
 picom -b
 systemctl --user daemon-reload;systemctl --user enable opentabletdriver --now
+
+# Nerdfonts
+wget /tmp/Inconsolata.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Inconsolata.zip"
+cd /tmp/
+unzip Inconsolata.zip
+mv *.ttf /usr/share/fonts/
+
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
   vim ~/.config/nvim/lua/custom/chadrc.lua
   https://github.com/NvChad/NvChad/discussions/1204
   vim ~/.config/nvim/lua/core/init.lua
   opt.mouse = ""
+
+nvim nvchad cheatsheet space+ch
 
 vim replace newline and stil want a newline
 :% s/\n/a\r/g
