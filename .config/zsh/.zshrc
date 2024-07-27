@@ -8,9 +8,18 @@ export PATH="$HOME/.local/bin:$PATH"
 #Enable Colors
 autoload -U colors && colors
 
-#Enable History
+#Set zsh history
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
 
 #Basic auto/tab complete:
 autoload -U compinit
@@ -47,6 +56,7 @@ PS2='> '
 
 #alias
 alias vim='nvim'
+alias vi='nvim'
 alias feh='feh -g 1280x720 -z'
 alias sourcez='source ~/.config/zsh/.zshrc'
 #alias picom='picom --experimental-backends'
@@ -70,3 +80,8 @@ alias grep='grep --color=auto'
 wal -q -i "$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')" #nitrogen
 #wal -q -i $(grep feh ~/.fehbg |awk '{print $4}' | sed -e "s/'//g") #feh
 export PATH=$PATH:/home/nacs/.spicetify
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+clear
