@@ -5,6 +5,11 @@ export TERM=alacritty
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"
 
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 #Enable Colors
 autoload -U colors && colors
 
@@ -35,6 +40,8 @@ bindkey "^[[F" end-of-line #End
 bindkey "^[[5~" up-history #Page-up
 bindkey "^[[6~" down-history #Page-down
 bindkey '^R' history-incremental-search-backward #reverse-i-search
+bindkey '^H' backward-kill-word # ctrl + backspace
+#bindkey '5~' kill-word # ctrl + del
 
 #Plugin
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -77,9 +84,6 @@ alias grep='grep --color=auto'
 #pywal auto
 wal -q -i "$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')" #nitrogen
 #wal -q -i $(grep feh ~/.fehbg |awk '{print $4}' | sed -e "s/'//g") #feh
-export PATH=$PATH:/home/nacs/.spicetify
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#
 
 clear
