@@ -9,11 +9,9 @@ export PATH="$HOME/.local/bin:$PATH"
 autoload -U colors && colors
 
 #Set zsh history
-HISTSIZE=10000
+HISTSIZE=5000
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
