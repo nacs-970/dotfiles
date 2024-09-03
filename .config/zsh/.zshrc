@@ -40,7 +40,7 @@ bindkey "^[[F" end-of-line #End
 bindkey "^[[5~" up-history #Page-up
 bindkey "^[[6~" down-history #Page-down
 bindkey '^R' history-incremental-search-backward #reverse-i-search
-bindkey '^H' backward-kill-word # ctrl + backspace
+#bindkey '^H' backward-kill-word # ctrl + backspace
 #bindkey '5~' kill-word # ctrl + del
 
 #Plugin
@@ -67,8 +67,8 @@ alias sourcez='source ~/.config/zsh/.zshrc'
 #alias picom='picom --experimental-backends'
 alias mpvg='mpv --player-operation-mode=pseudo-gui&disown'
 alias wcrf='feh --bg-fill $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc' #feh
-alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias wcf='feh --bg-fill $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #feh
+alias wcrn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/* | shuf -n 1);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias wcn='nitrogen --set-zoom-fill --save $(ls /media/d/Personal/Image/walls/*|sxiv -tio);source ~/.config/zsh/.zshrc;clear' #nitrogen
 alias bls='betterlockscreen -u $(ls /media/d/Personal/Image/walls/*|sxiv -tio)'
 alias sptdl='echo "URL > ";read spotdlurl;spotdl $spotdlurl --format m4a --output /media/d/Personal/Musik/Download'
@@ -81,9 +81,9 @@ alias mkdir='mkdir -pv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias grep='grep --color=auto'
+
 #pywal auto
 wal -q -i "$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')" #nitrogen
 #wal -q -i $(grep feh ~/.fehbg |awk '{print $4}' | sed -e "s/'//g") #feh
-#
 
 clear
