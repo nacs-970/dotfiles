@@ -40,7 +40,7 @@ bindkey "^[[F" end-of-line #End
 bindkey "^[[5~" up-history #Page-up
 bindkey "^[[6~" down-history #Page-down
 bindkey '^R' history-incremental-search-backward #reverse-i-search
-#bindkey '^H' backward-kill-word # ctrl + backspace
+bindkey '^H' backward-kill-word # ctrl + backspace
 #bindkey '5~' kill-word # ctrl + del
 
 #Plugin
