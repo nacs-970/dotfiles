@@ -105,9 +105,10 @@ add :
 
 #Game ost
 - yt : 
-	- chapter : yt-dlp -f 140 --split-chapters -o "%(chapter_number)s.%(chapter)s.%(ext)s" "$(xclip -o)"
-	- playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s" "$(xclip -o)"
-  - video and audio : yt-dlp "$(xclip -o)"-f 400+140 --embed-subs
++ chapter : yt-dlp -f 140 --split-chapters -o "%(chapter_number)s.%(chapter)s.%(ext)s" "$(xclip -o)"
++ playlist :  yt-dlp -f 140 -o "%(playlist_index)s.%(title)s.%(ext)s" "$(xclip -o)"
++ video and audio : yt-dlp "$(xclip -o)"-f 400+140 --embed-subs
+
 - https://downloads.khinsider.com/
 - https://www.sittingonclouds.net/
 
@@ -583,7 +584,7 @@ wget "$(curl https://ungoogled-software.github.io/ungoogled-chromium-binaries/|c
 Open port 8000 or else in router
 cd folder/
 python -m http.server port #default 8000
-python -n http.server 6958
+python -m http.server 6958
 find own public ip
 publicip:port
 
