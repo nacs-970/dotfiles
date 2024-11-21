@@ -591,11 +591,18 @@ publicip:port
 # Syncthing
 change default folder
 https://docs.syncthing.net/v1.23.3/users/config.html?highlight=path#config-option-folder.path
+
 # pyenv
 pyenv install 3.1x.xx 
 pyenv local 3.1x.xx # In that directory and subdirectory
 pyenv shell <version> # In that shell
 pyenv gobal <version> # Everywhere
+
+# git change remote type https to ssh:
+git remote set-url origin git@github.com:user/repo.git
+
+# merge pdf cli
+pdfunite *.pdf out.pdf
 
 #troubleshoot slow bio boot
 0) Swap windows boot to first -> reboot -> boot menu -> arch
