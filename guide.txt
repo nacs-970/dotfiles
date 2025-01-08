@@ -615,3 +615,6 @@ pdfunite *.pdf out.pdf
 2) reinstall linux linux-headers grub --overwrite
 3) vim etc/default/grub  -> remove nomodeset
 4) yay -S dkms -> sudo dkms autoinstall
+
+# AUR reinstall all Dependencies
+yay -S $(pacman -Qi spotdl | grep "Depends On" | cut -d: -f2)
