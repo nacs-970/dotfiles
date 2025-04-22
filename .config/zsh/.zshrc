@@ -81,6 +81,7 @@ alias mkdir='mkdir -pv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias grep='grep --color=auto'
+alias camera-ptp='gio open "gphoto2://[$(gphoto2 --auto-detect | grep -Eo "usb[^ ]+")]";clear'
 
 #pywal auto
 wal -q -i "$(grep file ~/.config/nitrogen/bg-saved.cfg | sed 's/file=//')" #nitrogen

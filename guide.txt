@@ -618,3 +618,7 @@ pdfunite *.pdf out.pdf
 
 # AUR reinstall all Dependencies
 yay -S $(pacman -Qi spotdl | grep "Depends On" | cut -d: -f2)
+
+# PTP Camera Storage
+https://wiki.archlinux.org/title/GPhoto#Example_usage_with_GVfs
+yay -S gphoto2 gvfs-gphoto2
